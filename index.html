@@ -3,17 +3,660 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>David's Farm - Coming Soon</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&family=Press+Start+2P&family=Outfit:wght@300;400;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+    <title>David's Farm</title>
+    <link rel="icon" type="image/png" href="images/longset_logo.png">
+    <link rel="stylesheet" href="style.css?v=20260615-32">
 </head>
-<body>
-    <main class="container">
-        <img src="david.gif" alt="David's Farm" class="logo-gif">
-        <h1 class="title">David's Farm</h1>
-        <p class="subtitle">Coming Soon.</p>
-    </main>
+<body class="font-pirkkala">
+    <header class="site-header">
+        <img src="images/longset_logo.png" alt="Longset" class="header-logo">
+        <nav class="nav-links">
+            <a href="#" class="active">Home</a>
+            <a href="#newsletter">Newsletter</a>
+            <a href="#credits">Créditos</a>
+        </nav>
+        <button class="font-toggle active" id="font-toggle" type="button" aria-label="Alternar para a fonte I Pixel U" aria-pressed="true" title="Trocar fonte">
+            Aa
+        </button>
+        <button class="font-hint" id="font-hint" type="button" aria-label="Fechar aviso de troca de fonte">
+            Dificil de ler? Mude a fonte aqui!
+        </button>
+    </header>
+    <div class="page-card">
+        <main class="container">
+            <img src="images/logo.png" alt="David's Farm Logo" class="logo">
+            <p class="logo-disclaimer">
+                Esta logo foi gerada por inteligência artificial e é PROVISÓRIA.
+                Não apoiamos conteúdo artístico gerado por IA. O jogo final não usará artes, personagens,
+                música, roteiro ou assets gerados por IA.
+            </p>
+            <div class="content-wrapper">
+                <div class="card-column">
+                    <img src="images/2yearscard.png" alt="Card 2 Anos" class="card-image">
+                </div>
+                <div class="text-column">
+                    <p>Olá! Seja bem-vindo ao site oficial de David's Farm.</p>
+                    <p>Eu sou Gabriel, mais conhecido como Deon, criador e desenvolvedor principal do projeto. Este site existe por um motivo simples: compartilhar a evolução do jogo com quem tiver curiosidade de acompanhar essa jornada.</p>
+                    <p>Por mais maluco que pareça, David's Farm está se tornando um projeto real. Atualmente, uma pequena equipe de 4 desenvolvedores trabalha no jogo utilizando C++.</p>
+                    <p>Nosso objetivo é lançar o projeto para PC, Mobile e Xbox Series. E... é, a gente também pretende portar para Nintendo 3DS, PSP e alguns consoles clássicos compatíveis. Não pergunte por quê. Nós também não temos certeza.</p>
+                    <p>A longo prazo, pretendemos publicar o jogo na Steam. Então fique de olho nas novidades.</p>
+                    <p class="signature">— Deon • 14/06/2026</p>
+                </div>
+            </div>
+
+            <div class="divider-placeholder" id="placeholder-1" style="height: 1px; margin: 80px 0 40px 0;"></div>
+
+            <div class="content-wrapper history-section">
+                <div class="text-column">
+                    <h2 class="section-title">A história vai mudar.</h2>
+                    <p>Sim, ela vai mudar.</p>
+                    <p>O David's Farm original continuará sendo a base de tudo, mas conforme o desenvolvimento avança, algumas partes da história serão reescritas, expandidas ou adaptadas. Nosso objetivo é manter a personalidade dos personagens e a essência do universo que muita gente já conhece.</p>
+                    <p>A trama envolvendo o <span class="rgb-text">Coed Mawr</span> continuará sendo uma peça importante da história, mas provavelmente não exatamente da mesma forma que você lembra.</p>
+                    <p>Vale lembrar que a história ainda está sendo escrita. Estamos construindo o jogo e o universo ao mesmo tempo, então muitas ideias ainda estão tomando forma.</p>
+                    <p>Mas uma coisa eu posso garantir: eu, Gabriel, vou me esforçar ao máximo para criar uma aventura divertida, dinâmica e memorável. Então fique de olho nas novidades. :)</p>
+                </div>
+                <div class="card-column">
+                    <img src="images/history_card.png" alt="Card Historia" class="card-image">
+                </div>
+            </div>
+
+            <div class="divider-placeholder" id="placeholder-2" style="height: 1px; margin: 40px 0 80px 0;"></div>
+
+            <div class="content-wrapper devices-section">
+                <div class="text-column">
+                    <h2 class="section-title">Dispositivos</h2>
+
+                    <div class="devices-layout">
+                        <img src="images/consoles.png" alt="Consoles" class="consoles-image">
+
+                        <div class="faq-list">
+                            <div class="faq-item">
+                                <h3>A versão para consoles novos vai chegar ao mesmo tempo da versão original?</h3>
+                                <div class="faq-answer">
+                                    <p>Vai.</p>
+                                    <p>A versão de Xbox Series está planejada para chegar junto da versão de PC.</p>
+                                    <p>Já a versão de PS5... bem, PS5 é caro pra desgraça. Vamos ver o que acontece.</p>
+                                    <p class="parenthesis">(E eu também não faço a mínima ideia de como colocar um jogo nessas lojas ainda.)</p>
+                                </div>
+                            </div>
+
+                            <div class="faq-item">
+                                <h3>A versão mobile vai estar na Play Store?</h3>
+                                <div class="faq-answer">
+                                    <p>Tem que ver com os cara lá.</p>
+                                </div>
+                            </div>
+
+                            <div class="faq-item">
+                                <h3>A versão para PC vai ser baixável onde?</h3>
+                                <div class="faq-answer">
+                                    <p>Inicialmente, na Steam.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <section class="credits-section" id="credits">
+                <h2 class="section-title">Créditos</h2>
+
+                <div class="credits-grid">
+                    <article class="credit-card">
+                        <img src="https://avatars.githubusercontent.com/u/265530670?v=4" alt="Avatar de eusoudeon" class="credit-avatar">
+                        <div class="credit-info">
+                            <h3>eusoudeon</h3>
+                            <p>Criador e Programador</p>
+                        </div>
+                    </article>
+
+                    <article class="credit-card">
+                        <img src="https://avatars.githubusercontent.com/u/244514476?v=4" alt="Avatar de jgnao" class="credit-avatar">
+                        <div class="credit-info">
+                            <h3>jgnao</h3>
+                            <p>Programador</p>
+                        </div>
+                    </article>
+
+                    <article class="credit-card">
+                        <img src="https://avatars.githubusercontent.com/u/291599338?v=4" alt="Avatar de sk8vyrjpeg_" class="credit-avatar">
+                        <div class="credit-info">
+                            <h3>sk8vyrjpeg_</h3>
+                            <p>Músico e Artista</p>
+                        </div>
+                    </article>
+
+                    <article class="credit-card">
+                        <img src="https://avatars.githubusercontent.com/u/55399471?v=4" alt="Avatar de daniyusk" class="credit-avatar">
+                        <div class="credit-info">
+                            <h3>daniyusk</h3>
+                            <p>Pixel Artist e Programador</p>
+                        </div>
+                    </article>
+                </div>
+            </section>
+
+            <section class="agrinho-section" id="agrinho">
+                <h2 class="section-title">Sobre o Agrinho</h2>
+                <img src="images/agrinho.png" alt="Logo do Agrinho" class="agrinho-logo">
+
+                <div class="agrinho-copy">
+                    <p>O Agrinho é um programa educacional e de responsabilidade social do Sistema FAEP/SENAR-PR, desenvolvido em parceria com o Governo do Paraná, com atividades e concursos voltados a estudantes e professores.</p>
+                    <p>David's Farm foi inicialmente criado visando disputar e ganhar essa competição. Hoje, porém, o jogo não tem NENHUM vínculo oficial, institucional, criativo ou comercial com o Agrinho, com o Paraná, com o Sistema FAEP/SENAR-PR ou com qualquer iniciativa relacionada.</p>
+                </div>
+            </section>
+
+            <section class="preview-section" id="preview">
+                <div class="preview-copy">
+                    <h2 class="section-title">Preview</h2>
+                    <p>Tá bom... pra não ficar sem nada, tá aqui uma música em W.I.P que a gente fez.</p>
+                </div>
+
+                <div class="music-player">
+                    <img src="https://avatars.githubusercontent.com/u/291599338?v=4" alt="Avatar de sk8vyrjpeg_" class="music-cover">
+
+                    <div class="music-info">
+                        <p class="music-title">W.I.P Preview</p>
+                        <p class="music-credit">Feito por sk8vyr</p>
+
+                        <audio id="preview-audio" preload="metadata" src="music/preview.mp3"></audio>
+
+                        <div class="music-controls">
+                            <button class="music-play" id="preview-play" type="button" aria-label="Tocar preview">PLAY</button>
+                            <div class="music-progress-wrap">
+                                <input class="music-progress" id="preview-progress" type="range" value="0" min="0" max="100" step="0.1" aria-label="Progresso da música">
+                                <div class="music-time">
+                                    <span id="preview-current">0:00</span>
+                                    <span id="preview-duration">0:00</span>
+                                </div>
+                            </div>
+                            <div class="music-volume-control">
+                                <label class="music-volume-label" for="preview-volume">VOL</label>
+                                <input class="music-volume" id="preview-volume" type="range" value="60" min="0" max="100" step="1" aria-label="Volume da música">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="newsletter-section" id="newsletter">
+                <div class="newsletter-copy">
+                    <h2 class="section-title">Newsletter</h2>
+                    <p>Acompanhe notícias do desenvolvimento do jogo o mais rápido possível... talvez sem spam, não prometo.</p>
+                </div>
+
+                <form
+                    class="newsletter-form"
+                    action="https://app.kit.com/forms/9569665/subscriptions"
+                    method="post"
+                    target="kit-newsletter-target"
+                    data-sv-form="9569665"
+                    data-uid="15132f23da"
+                >
+                    <div class="newsletter-form-row">
+                        <label class="visually-hidden" for="newsletter-email">Seu e-mail</label>
+                        <input
+                            class="newsletter-input"
+                            id="newsletter-email"
+                            name="email_address"
+                            type="email"
+                            inputmode="email"
+                            autocomplete="email"
+                            placeholder="seu@email.com"
+                            required
+                        >
+                        <button class="newsletter-submit" type="submit">ASSINAR</button>
+                    </div>
+
+                    <p class="newsletter-terms">
+                        Ao assinar, você receberá um e-mail para confirmar a inscrição.
+                        Sem spam. Cancele quando quiser.
+                        Se não aparecer na caixa de entrada, dá uma olhada no spam.
+                    </p>
+                    <p class="newsletter-status" id="newsletter-status" aria-live="polite"></p>
+                </form>
+            </section>
+
+            <!-- Dynamic Snake Divider Elements -->
+            <svg id="snake-canvas" class="snake-canvas" preserveAspectRatio="none">
+                <path id="snake-path" class="snake-path" d="" />
+            </svg>
+
+            <div id="david-element" class="david-element">
+                <img src="images/david.gif" alt="David GIF" class="divider-gif" id="david-gif">
+                <span class="divider-text" id="david-text">Sobre a história...</span>
+            </div>
+        </main>
+    </div>
+
+    <footer class="site-footer" aria-label="Créditos e avisos do site">
+        <div class="footer-inner">
+            <p class="footer-title">Créditos e avisos</p>
+
+            <ul class="footer-credit-list">
+                <li>Imagem dos consoles: montagem ilustrativa com Nintendo 3DS e Sony PSP. Nintendo, Sony, PSP e demais marcas pertencem aos seus respectivos donos; não existe afiliação, patrocínio ou endosso.</li>
+                <li>Agrinho: logo e menção usadas apenas para contexto histórico. O programa pertence ao Sistema FAEP/SENAR-PR; David's Farm não tem vínculo oficial com o Agrinho, Paraná ou entidades relacionadas. <a href="https://www.sistemafaep.org.br/agrinho/" target="_blank" rel="noopener noreferrer">Site oficial do Agrinho</a>.</li>
+                <li>Logo principal de David's Farm: arte provisória gerada por IA; não representa o visual final do jogo e não será usada como asset final.</li>
+                <li>Avatares exibidos nos créditos: imagens públicas dos perfis GitHub da equipe.</li>
+                <li>Música do preview: sk8vyr. Artes, screenshots e conteúdo do jogo: equipe David's Farm.</li>
+                <li>Fontes usadas no site: I Pixel U e Pirkkala, carregadas dos arquivos locais do projeto.</li>
+                <li>Newsletter: formulário integrado ao Kit.</li>
+            </ul>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const container = document.querySelector('.container');
+            const p1 = document.getElementById('placeholder-1');
+            const p2 = document.getElementById('placeholder-2');
+            const fontToggle = document.getElementById('font-toggle');
+            const fontHint = document.getElementById('font-hint');
+            const newsletterForm = document.querySelector('.newsletter-form');
+            const newsletterSubmit = document.querySelector('.newsletter-submit');
+            const newsletterStatus = document.getElementById('newsletter-status');
+            const newsletterEmail = document.getElementById('newsletter-email');
+            const previewAudio = document.getElementById('preview-audio');
+            const previewPlay = document.getElementById('preview-play');
+            const previewProgress = document.getElementById('preview-progress');
+            const previewCurrent = document.getElementById('preview-current');
+            const previewDuration = document.getElementById('preview-duration');
+            const previewVolume = document.getElementById('preview-volume');
+
+            let newsletterSubmissionPending = false;
+
+            newsletterForm.addEventListener('submit', async (event) => {
+                event.preventDefault();
+                if (newsletterSubmissionPending) return;
+
+                newsletterSubmissionPending = true;
+                newsletterSubmit.disabled = true;
+                newsletterSubmit.textContent = 'ENVIANDO...';
+                newsletterStatus.className = 'newsletter-status';
+                newsletterStatus.textContent = 'Enviando sua inscrição...';
+
+                try {
+                    const body = new URLSearchParams();
+                    body.set(newsletterEmail.name, newsletterEmail.value.trim());
+
+                    const response = await fetch(newsletterForm.action, {
+                        method: 'POST',
+                        headers: {
+                            'Accept': 'text/html',
+                            'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
+                        },
+                        body
+                    });
+
+                    if (!response.ok) {
+                        throw new Error(`Kit returned ${response.status}`);
+                    }
+
+                    newsletterEmail.value = '';
+                    newsletterStatus.className = 'newsletter-status success';
+                    newsletterStatus.textContent = 'Inscrição enviada! Confira seu e-mail para confirmar.';
+                } catch (error) {
+                    newsletterStatus.className = 'newsletter-status error';
+                    newsletterStatus.textContent = 'Não foi possível enviar agora. Tente novamente.';
+                } finally {
+                    newsletterSubmissionPending = false;
+                    newsletterSubmit.disabled = false;
+                    newsletterSubmit.textContent = 'ASSINAR';
+                }
+            });
+
+            function dismissFontHint() {
+                fontHint.classList.add('hidden');
+                try {
+                    sessionStorage.setItem('davids-farm-font-hint', 'dismissed');
+                } catch (error) {
+                    // The hint can still be dismissed when browser storage is unavailable.
+                }
+            }
+
+            function applyFontPreference(usePirkkala) {
+                document.body.classList.toggle('font-pirkkala', usePirkkala);
+                fontToggle.classList.toggle('active', usePirkkala);
+                fontToggle.setAttribute('aria-pressed', String(usePirkkala));
+                fontToggle.setAttribute(
+                    'aria-label',
+                    usePirkkala ? 'Alternar para a fonte I Pixel U' : 'Voltar para a fonte Pirkkala'
+                );
+            }
+
+            let usePirkkala = true;
+            try {
+                usePirkkala = localStorage.getItem('davids-farm-font') !== 'i-pixel-u';
+            } catch (error) {
+                usePirkkala = true;
+            }
+            applyFontPreference(usePirkkala);
+
+            try {
+                if (sessionStorage.getItem('davids-farm-font-hint') === 'dismissed') {
+                    fontHint.classList.add('hidden');
+                }
+            } catch (error) {
+                // Show the hint normally when browser storage is unavailable.
+            }
+
+            fontHint.addEventListener('click', dismissFontHint);
+
+            fontToggle.addEventListener('click', () => {
+                usePirkkala = !document.body.classList.contains('font-pirkkala');
+                applyFontPreference(usePirkkala);
+                dismissFontHint();
+                try {
+                    localStorage.setItem('davids-farm-font', usePirkkala ? 'pirkkala' : 'i-pixel-u');
+                } catch (error) {
+                    // The toggle still works when browser storage is unavailable.
+                }
+            });
+
+            document.addEventListener('keydown', (event) => {
+                if (event.key !== 'F8') return;
+
+                event.preventDefault();
+                try {
+                    localStorage.clear();
+                    sessionStorage.clear();
+                } catch (error) {
+                    // Reset the visible state even when browser storage is unavailable.
+                }
+
+                usePirkkala = true;
+                applyFontPreference(true);
+                fontHint.classList.remove('hidden');
+            });
+
+            function formatAudioTime(seconds) {
+                if (!Number.isFinite(seconds)) return '0:00';
+
+                const minutes = Math.floor(seconds / 60);
+                const remainingSeconds = Math.floor(seconds % 60).toString().padStart(2, '0');
+                return `${minutes}:${remainingSeconds}`;
+            }
+
+            if (previewAudio && previewPlay && previewProgress && previewCurrent && previewDuration && previewVolume) {
+                previewAudio.volume = Number(previewVolume.value) / 100;
+
+                function updatePreviewProgress() {
+                    previewProgress.value = previewAudio.duration
+                        ? String((previewAudio.currentTime / previewAudio.duration) * 100)
+                        : '0';
+                    previewCurrent.textContent = formatAudioTime(previewAudio.currentTime);
+                    previewDuration.textContent = formatAudioTime(previewAudio.duration);
+                }
+
+                previewPlay.addEventListener('click', async () => {
+                    if (previewAudio.paused) {
+                        try {
+                            await previewAudio.play();
+                        } catch (error) {
+                            previewPlay.textContent = 'PLAY';
+                            previewPlay.setAttribute('aria-label', 'Tocar preview');
+                        }
+                    } else {
+                        previewAudio.pause();
+                    }
+                });
+
+                previewAudio.addEventListener('play', () => {
+                    previewPlay.textContent = 'PAUSE';
+                    previewPlay.setAttribute('aria-label', 'Pausar preview');
+                });
+
+                previewAudio.addEventListener('pause', () => {
+                    previewPlay.textContent = 'PLAY';
+                    previewPlay.setAttribute('aria-label', 'Tocar preview');
+                });
+
+                previewAudio.addEventListener('loadedmetadata', updatePreviewProgress);
+                previewAudio.addEventListener('timeupdate', updatePreviewProgress);
+                previewAudio.addEventListener('ended', () => {
+                    previewAudio.currentTime = 0;
+                    updatePreviewProgress();
+                });
+
+                previewProgress.addEventListener('input', () => {
+                    if (!previewAudio.duration) return;
+
+                    previewAudio.currentTime = (Number(previewProgress.value) / 100) * previewAudio.duration;
+                });
+
+                previewVolume.addEventListener('input', () => {
+                    previewAudio.volume = Number(previewVolume.value) / 100;
+                });
+            }
+
+            const snakeCanvas = document.getElementById('snake-canvas');
+            const snakePath = document.getElementById('snake-path');
+            const davidElement = document.getElementById('david-element');
+            const davidGif = document.getElementById('david-gif');
+            const davidText = document.getElementById('david-text');
+
+            let currentState = 1;
+            let isAnimating = false;
+            let lastCalculatedState = { L1: 0, L2: 0, L3: 0, L_total: 0, gap: 0, startY: 0, endY: 0, startX: 0, rightX: 0, endX: 0 };
+
+            function calculatePath() {
+                const containerRect = container.getBoundingClientRect();
+                const p1Rect = p1.getBoundingClientRect();
+                const p2Rect = p2.getBoundingClientRect();
+
+                // We use offsetTop/Left relative to the container
+                // p1.offsetTop gives the Y position of placeholder 1 relative to container
+                const startY = p1.offsetTop;
+                const endY = p2.offsetTop;
+
+                const padding = 20;
+                const startX = padding;
+                const endX = padding;
+
+                // Calculate rightX: 60px away from the content edge, but keep it inside the screen
+                const historySection = document.querySelector('.history-section');
+                const wrapperRightEdge = historySection.offsetLeft + historySection.offsetWidth;
+                const rightX = wrapperRightEdge + 40; // Pass outside the content
+
+                // Create SVG Path (Delay setting it if animating)
+                const pathString = `M ${startX} ${startY} L ${rightX} ${startY} L ${rightX} ${endY} L ${endX} ${endY}`;
+                if (!isAnimating) {
+                    snakePath.setAttribute('d', pathString);
+                }
+
+                // Calculate lengths
+                const L1 = rightX - startX;
+                const L2 = endY - startY;
+                const L3 = rightX - endX; // == L1
+                const L_total = L1 + L2 + L3;
+
+                // Calculate Gap (David width + gap + Text width)
+                const gap = davidElement.offsetWidth + 15; // 15px extra breathing room
+                const snakeLength = wrapperRightEdge - startX - gap;
+
+                snakePath.style.strokeDasharray = `${snakeLength} ${L_total}`;
+
+                // State offsets
+                const offset1 = -gap;
+                const offset2 = -(L1 + L2 + (rightX - wrapperRightEdge));
+
+                lastCalculatedState = { L1, L2, L3, L_total, gap, startY, endY, startX, rightX, endX, offset1, offset2, snakeLength, pathString };
+
+                if (!isAnimating) {
+                    snakePath.setAttribute('d', pathString);
+                    snakePath.style.strokeDasharray = `${snakeLength} ${L_total}`;
+                    applyStateWithoutAnimation();
+                }
+            }
+
+            function applyStateWithoutAnimation() {
+                if (isAnimating) return;
+                const { offset1, offset2, startY, endY, startX, endX } = lastCalculatedState;
+
+                if (currentState === 1) {
+                    snakePath.style.strokeDashoffset = `${offset1}px`;
+                    davidElement.style.transform = `translate(${startX}px, ${startY - davidElement.offsetHeight/2}px)`;
+                    davidText.textContent = "Sobre a história...";
+                    davidGif.style.transform = "scaleX(1)";
+                } else {
+                    snakePath.style.strokeDashoffset = `${offset2}px`;
+                    davidElement.style.transform = `translate(${endX}px, ${endY - davidElement.offsetHeight/2}px)`;
+                    davidText.textContent = "Obrigado por acompanhar! :)";
+                    davidGif.style.transform = "scaleX(1)";
+                }
+            }
+
+            function triggerTransition() {
+                if (isAnimating) return;
+                isAnimating = true;
+
+                const { startY, endY, startX, rightX, endX, L1, L2, L3, L_total } = lastCalculatedState;
+
+                // Measure target gap dynamically
+                const currentText = davidText.textContent;
+                const targetText = currentState === 2 ? "Obrigado por acompanhar! :)" : "Sobre a história...";
+
+                davidText.textContent = targetText;
+                const targetGap = davidElement.offsetWidth + 15;
+                davidText.textContent = currentText; // restore
+                const currentGap = davidElement.offsetWidth + 15;
+
+                const historySection = document.querySelector('.history-section');
+                const wrapperRightEdge = historySection.offsetLeft + historySection.offsetWidth;
+
+                const oldSnakeLength = wrapperRightEdge - startX - currentGap;
+                const newSnakeLength = wrapperRightEdge - startX - targetGap;
+                const offset2 = -(L1 + L2 + (rightX - wrapperRightEdge));
+
+                // Animation settings
+                const duration = 1200;
+                const easing = 'cubic-bezier(0.45, 0, 0.55, 1)'; // Smooth ease in out
+
+                const davidOffset = davidGif.offsetWidth / 2;
+
+                // Path Keyframes for David
+                const davidKeyframes = currentState === 2 ? [
+                    { transform: `translate(${startX}px, ${startY - davidElement.offsetHeight/2}px)`, offset: 0 },
+                    { transform: `translate(${rightX - davidOffset}px, ${startY - davidElement.offsetHeight/2}px)`, offset: 0.4 },
+                    { transform: `translate(${rightX - davidOffset}px, ${endY - davidElement.offsetHeight/2}px)`, offset: 0.6 },
+                    { transform: `translate(${endX}px, ${endY - davidElement.offsetHeight/2}px)`, offset: 1 }
+                ] : [
+                    { transform: `translate(${endX}px, ${endY - davidElement.offsetHeight/2}px)`, offset: 0 },
+                    { transform: `translate(${rightX - davidOffset}px, ${endY - davidElement.offsetHeight/2}px)`, offset: 0.4 },
+                    { transform: `translate(${rightX - davidOffset}px, ${startY - davidElement.offsetHeight/2}px)`, offset: 0.6 },
+                    { transform: `translate(${startX}px, ${startY - davidElement.offsetHeight/2}px)`, offset: 1 }
+                ];
+
+                // Text change halfway (while invisible)
+                setTimeout(() => {
+                    davidText.textContent = currentState === 2 ? "Obrigado por acompanhar! :)" : "Sobre a história...";
+                    // calculatePath will be triggered by ResizeObserver when text changes
+                }, duration / 2);
+
+                // Text Fade In/Out Animation
+                const textFadeKeyframes = [
+                    { opacity: 1, offset: 0 },
+                    { opacity: 0, offset: 0.2 },
+                    { opacity: 0, offset: 0.8 },
+                    { opacity: 1, offset: 1 }
+                ];
+                davidText.animate(textFadeKeyframes, { duration, easing: 'ease-in-out', fill: 'forwards' });
+
+                // David Jump & Flip Animation
+                // If moving to 2: moves Right (face right), Down (face right), Left (face left)
+                // If moving to 1: moves Right (face right), Up (face right), Left (face left)
+                const gifFlipKeyframes = currentState === 2 ? [
+                    { transform: 'scaleX(1)', offset: 0 },
+                    { transform: 'scaleX(1)', offset: 0.59 },
+                    { transform: 'scaleX(-1)', offset: 0.6 },
+                    { transform: 'scaleX(-1)', offset: 0.99 },
+                    { transform: 'scaleX(1)', offset: 1 }
+                ] : [
+                    { transform: 'scaleX(1)', offset: 0 },
+                    { transform: 'scaleX(1)', offset: 0.39 },
+                    { transform: 'scaleX(-1)', offset: 0.4 },
+                    { transform: 'scaleX(-1)', offset: 0.99 },
+                    { transform: 'scaleX(1)', offset: 1 }
+                ];
+
+                davidGif.animate(gifFlipKeyframes, { duration, easing: 'linear', fill: 'forwards' });
+
+                // Add Jump class to make him bounce while slithering
+                davidGif.classList.add('jump-continuous');
+
+                // David Element Translation
+                const davidAnim = davidElement.animate(davidKeyframes, { duration, easing, fill: 'forwards' });
+
+                // Snake Line Dash Offset AND Array (for smooth length transition)
+                const lineKeyframes = currentState === 2 ? [
+                    { strokeDashoffset: `${-currentGap}px`, strokeDasharray: `${oldSnakeLength} ${L_total}` },
+                    { strokeDashoffset: `${offset2}px`, strokeDasharray: `${newSnakeLength} ${L_total}` }
+                ] : [
+                    { strokeDashoffset: `${offset2}px`, strokeDasharray: `${oldSnakeLength} ${L_total}` },
+                    { strokeDashoffset: `${-targetGap}px`, strokeDasharray: `${newSnakeLength} ${L_total}` }
+                ];
+
+                const snakeAnim = snakePath.animate(lineKeyframes, { duration, easing, fill: 'forwards' });
+                snakeAnim.onfinish = () => {
+                    davidGif.classList.remove('jump-continuous');
+                    isAnimating = false;
+
+                    // Apply the final calculated state to the CSS
+                    snakePath.setAttribute('d', lastCalculatedState.pathString);
+                    snakePath.style.strokeDasharray = `${lastCalculatedState.snakeLength} ${lastCalculatedState.L_total}`;
+                    applyStateWithoutAnimation();
+
+                    // Cancel animations to release the 'forwards' lock and let CSS take over smoothly
+                    snakeAnim.cancel();
+                    davidAnim.cancel();
+                };
+            }
+
+            function checkScroll() {
+                const rect1 = p1.getBoundingClientRect();
+                const viewportCenter = window.innerHeight * 0.45;
+
+                if (rect1.top < viewportCenter) {
+                    if (currentState !== 2 && !isAnimating) {
+                        currentState = 2;
+                        triggerTransition();
+                    }
+                } else {
+                    if (currentState !== 1 && !isAnimating) {
+                        currentState = 1;
+                        triggerTransition();
+                    }
+                }
+            }
+
+            window.addEventListener('scroll', checkScroll);
+
+            const resizeObserver = new ResizeObserver(() => {
+                calculatePath();
+            });
+            resizeObserver.observe(container);
+            resizeObserver.observe(davidElement);
+
+            // Accordion FAQ Click Handler
+            document.querySelectorAll('.faq-item h3').forEach(header => {
+                header.addEventListener('click', () => {
+                    const item = header.parentElement;
+                    item.classList.toggle('active');
+                });
+            });
+
+            // Initial setup
+            window.addEventListener('load', () => {
+                calculatePath();
+                checkScroll();
+            });
+
+            // Fallback check
+            setTimeout(() => {
+                calculatePath();
+                checkScroll();
+            }, 100);
+        });
+    </script>
 </body>
 </html>
