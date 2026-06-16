@@ -1,0 +1,92 @@
+{
+    "meta": { "htmlLang": "pt-BR", "label": "Português" },
+    "nav": {
+        "home": "Home",
+        "newsletter": "Newsletter",
+        "credits": "Créditos"
+    },
+    "font": {
+        "toggleTitle": "Trocar fonte",
+        "hint": "Dificil de ler? Mude a fonte aqui!",
+        "hintAria": "Fechar aviso de troca de fonte",
+        "ariaSwitchToPixel": "Alternar para a fonte I Pixel U",
+        "ariaSwitchToPirkkala": "Voltar para a fonte Pirkkala"
+    },
+    "logo": {
+        "disclaimer": "Esta logo foi gerada por inteligência artificial e é PROVISÓRIA. Não apoiamos conteúdo artístico gerado por IA. O jogo final não usará artes, personagens, música, roteiro ou assets gerados por IA."
+    },
+    "intro": {
+        "p1": "Olá! Seja bem-vindo ao site oficial de David's Farm.",
+        "p2": "Eu sou Gabriel, mais conhecido como Deon, criador e desenvolvedor principal do projeto. Este site existe por um motivo simples: compartilhar a evolução do jogo com quem tiver curiosidade de acompanhar essa jornada.",
+        "p3": "Por mais maluco que pareça, David's Farm está se tornando um projeto real. Atualmente, uma pequena equipe de 4 desenvolvedores trabalha no jogo utilizando C++.",
+        "p4": "Nosso objetivo é lançar o projeto para PC, Mobile e Xbox Series. E... é, a gente também pretende portar para Nintendo 3DS, PSP e alguns consoles clássicos compatíveis. Não pergunte por quê. Nós também não temos certeza.",
+        "p5": "A longo prazo, pretendemos publicar o jogo na Steam. Então fique de olho nas novidades.",
+        "signature": "— Deon • 14/06/2026"
+    },
+    "history": {
+        "title": "A história vai mudar.",
+        "p1": "Sim, ela vai mudar.",
+        "p2": "O David's Farm original continuará sendo a base de tudo, mas conforme o desenvolvimento avança, algumas partes da história serão reescritas, expandidas ou adaptadas. Nosso objetivo é manter a personalidade dos personagens e a essência do universo que muita gente já conhece.",
+        "p3": "A trama envolvendo o <span class='rgb-text'>Coed Mawr</span> continuará sendo uma peça importante da história, mas provavelmente não exatamente da mesma forma que você lembra.",
+        "p4": "Vale lembrar que a história ainda está sendo escrita. Estamos construindo o jogo e o universo ao mesmo tempo, então muitas ideias ainda estão tomando forma.",
+        "p5": "Mas uma coisa eu posso garantir: eu, Gabriel, vou me esforçar ao máximo para criar uma aventura divertida, dinâmica e memorável. Então fique de olho nas novidades. :)"
+    },
+    "devices": {
+        "title": "Dispositivos",
+        "faq1q": "A versão para consoles novos vai chegar ao mesmo tempo da versão original?",
+        "faq1a1": "Vai.",
+        "faq1a2": "A versão de Xbox Series está planejada para chegar junto da versão de PC.",
+        "faq1a3": "Já a versão de PS5... bem, PS5 é caro pra desgraça. Vamos ver o que acontece.",
+        "faq1a4": "(E eu também não faço a mínima ideia de como colocar um jogo nessas lojas ainda.)",
+        "faq2q": "A versão mobile vai estar na Play Store?",
+        "faq2a1": "Tem que ver com os cara lá.",
+        "faq3q": "A versão para PC vai ser baixável onde?",
+        "faq3a1": "Inicialmente, na Steam."
+    },
+    "credits": {
+        "title": "Créditos",
+        "roleCreatorProgrammer": "Criador e Programador",
+        "roleProgrammer": "Programador",
+        "roleMusicianArtist": "Músico e Artista",
+        "rolePixelProgrammer": "Pixel Artist e Programador"
+    },
+    "agrinho": {
+        "title": "Sobre o Agrinho",
+        "p1": "O Agrinho é um programa educacional e de responsabilidade social do Sistema FAEP/SENAR-PR, desenvolvido em parceria com o Governo do Paraná, com atividades e concursos voltados a estudantes e professores.",
+        "p2": "David's Farm foi inicialmente criado visando disputar e ganhar essa competição. Hoje, porém, o jogo não tem NENHUM vínculo oficial, institucional, criativo ou comercial com o Agrinho, com o Paraná, com o Sistema FAEP/SENAR-PR ou com qualquer iniciativa relacionada."
+    },
+    "preview": {
+        "title": "Preview",
+        "intro": "Tá bom... pra não ficar sem nada, tá aqui uma música em W.I.P que a gente fez.",
+        "musicTitle": "W.I.P Preview",
+        "musicCredit": "Feito por sk8vyr",
+        "playAria": "Tocar preview",
+        "pauseAria": "Pausar preview"
+    },
+    "newsletter": {
+        "title": "Newsletter",
+        "intro": "Acompanhe notícias do desenvolvimento do jogo o mais rápido possível... talvez sem spam, não prometo.",
+        "emailLabel": "Seu e-mail",
+        "placeholder": "seu@email.com",
+        "submit": "ASSINAR",
+        "sending": "ENVIANDO...",
+        "terms": "Ao assinar, você receberá um e-mail para confirmar a inscrição. Sem spam. Cancele quando quiser. Se não aparecer na caixa de entrada, dá uma olhada no spam.",
+        "statusSending": "Enviando sua inscrição...",
+        "statusSuccess": "Inscrição enviada! Confira seu e-mail para confirmar.",
+        "statusError": "Não foi possível enviar agora. Tente novamente."
+    },
+    "divider": {
+        "history": "Sobre a história...",
+        "thanks": "Obrigado por acompanhar! :)"
+    },
+    "footer": {
+        "title": "Créditos e avisos",
+        "item1": "Imagem dos consoles: montagem ilustrativa com Nintendo 3DS e Sony PSP. Nintendo, Sony, PSP e demais marcas pertencem aos seus respectivos donos; não existe afiliação, patrocínio ou endosso.",
+        "item2": "Agrinho: logo e menção usadas apenas para contexto histórico. O programa pertence ao Sistema FAEP/SENAR-PR; David's Farm não tem vínculo oficial com o Agrinho, Paraná ou entidades relacionadas. <a href='https://www.sistemafaep.org.br/agrinho/' target='_blank' rel='noopener noreferrer'>Site oficial do Agrinho</a>.",
+        "item3": "Logo principal de David's Farm: arte provisória gerada por IA; não representa o visual final do jogo e não será usada como asset final.",
+        "item4": "Avatares exibidos nos créditos: imagens públicas dos perfis GitHub da equipe.",
+        "item5": "Música do preview: sk8vyr. Artes, screenshots e conteúdo do jogo: equipe David's Farm.",
+        "item6": "Fontes usadas no site: I Pixel U e Pirkkala, carregadas dos arquivos locais do projeto.",
+        "item7": "Newsletter: formulário integrado ao Kit."
+    }
+}

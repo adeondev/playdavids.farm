@@ -5,27 +5,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>David's Farm</title>
     <link rel="icon" type="image/png" href="images/longset_logo.png">
-    <link rel="stylesheet" href="style.css?v=20260615-32">
+    <link rel="stylesheet" href="style.css?v=20260615-34">
 </head>
 <body class="font-pirkkala">
     <header class="site-header">
         <img src="images/longset_logo.png" alt="Longset" class="header-logo">
         <nav class="nav-links">
-            <a href="#" class="active">Home</a>
-            <a href="#newsletter">Newsletter</a>
-            <a href="#credits">Créditos</a>
+            <a href="#" class="active" data-i18n="nav.home">Home</a>
+            <a href="#newsletter" data-i18n="nav.newsletter">Newsletter</a>
+            <a href="#credits" data-i18n="nav.credits">Créditos</a>
         </nav>
-        <button class="font-toggle active" id="font-toggle" type="button" aria-label="Alternar para a fonte I Pixel U" aria-pressed="true" title="Trocar fonte">
+        <select class="lang-select" id="lang-select" aria-label="Idioma / Language">
+            <option value="pt">Português</option>
+            <option value="en">English</option>
+            <option value="es">Español</option>
+            <option value="ja">日本語</option>
+        </select>
+        <button class="font-toggle active" id="font-toggle" type="button" aria-label="Alternar para a fonte I Pixel U" aria-pressed="true" title="Trocar fonte" data-i18n-title="font.toggleTitle">
             Aa
         </button>
-        <button class="font-hint" id="font-hint" type="button" aria-label="Fechar aviso de troca de fonte">
+        <button class="font-hint" id="font-hint" type="button" aria-label="Fechar aviso de troca de fonte" data-i18n="font.hint" data-i18n-aria-label="font.hintAria">
             Dificil de ler? Mude a fonte aqui!
         </button>
     </header>
     <div class="page-card">
         <main class="container">
             <img src="images/logo.png" alt="David's Farm Logo" class="logo">
-            <p class="logo-disclaimer">
+            <p class="logo-disclaimer" data-i18n="logo.disclaimer">
                 Esta logo foi gerada por inteligência artificial e é PROVISÓRIA.
                 Não apoiamos conteúdo artístico gerado por IA. O jogo final não usará artes, personagens,
                 música, roteiro ou assets gerados por IA.
@@ -35,12 +41,12 @@
                     <img src="images/2yearscard.png" alt="Card 2 Anos" class="card-image">
                 </div>
                 <div class="text-column">
-                    <p>Olá! Seja bem-vindo ao site oficial de David's Farm.</p>
-                    <p>Eu sou Gabriel, mais conhecido como Deon, criador e desenvolvedor principal do projeto. Este site existe por um motivo simples: compartilhar a evolução do jogo com quem tiver curiosidade de acompanhar essa jornada.</p>
-                    <p>Por mais maluco que pareça, David's Farm está se tornando um projeto real. Atualmente, uma pequena equipe de 4 desenvolvedores trabalha no jogo utilizando C++.</p>
-                    <p>Nosso objetivo é lançar o projeto para PC, Mobile e Xbox Series. E... é, a gente também pretende portar para Nintendo 3DS, PSP e alguns consoles clássicos compatíveis. Não pergunte por quê. Nós também não temos certeza.</p>
-                    <p>A longo prazo, pretendemos publicar o jogo na Steam. Então fique de olho nas novidades.</p>
-                    <p class="signature">— Deon • 14/06/2026</p>
+                    <p data-i18n="intro.p1">Olá! Seja bem-vindo ao site oficial de David's Farm.</p>
+                    <p data-i18n="intro.p2">Eu sou Gabriel, mais conhecido como Deon, criador e desenvolvedor principal do projeto. Este site existe por um motivo simples: compartilhar a evolução do jogo com quem tiver curiosidade de acompanhar essa jornada.</p>
+                    <p data-i18n="intro.p3">Por mais maluco que pareça, David's Farm está se tornando um projeto real. Atualmente, uma pequena equipe de 4 desenvolvedores trabalha no jogo utilizando C++.</p>
+                    <p data-i18n="intro.p4">Nosso objetivo é lançar o projeto para PC, Mobile e Xbox Series. E... é, a gente também pretende portar para Nintendo 3DS, PSP e alguns consoles clássicos compatíveis. Não pergunte por quê. Nós também não temos certeza.</p>
+                    <p data-i18n="intro.p5">A longo prazo, pretendemos publicar o jogo na Steam. Então fique de olho nas novidades.</p>
+                    <p class="signature" data-i18n="intro.signature">— Deon • 14/06/2026</p>
                 </div>
             </div>
 
@@ -48,12 +54,12 @@
 
             <div class="content-wrapper history-section">
                 <div class="text-column">
-                    <h2 class="section-title">A história vai mudar.</h2>
-                    <p>Sim, ela vai mudar.</p>
-                    <p>O David's Farm original continuará sendo a base de tudo, mas conforme o desenvolvimento avança, algumas partes da história serão reescritas, expandidas ou adaptadas. Nosso objetivo é manter a personalidade dos personagens e a essência do universo que muita gente já conhece.</p>
-                    <p>A trama envolvendo o <span class="rgb-text">Coed Mawr</span> continuará sendo uma peça importante da história, mas provavelmente não exatamente da mesma forma que você lembra.</p>
-                    <p>Vale lembrar que a história ainda está sendo escrita. Estamos construindo o jogo e o universo ao mesmo tempo, então muitas ideias ainda estão tomando forma.</p>
-                    <p>Mas uma coisa eu posso garantir: eu, Gabriel, vou me esforçar ao máximo para criar uma aventura divertida, dinâmica e memorável. Então fique de olho nas novidades. :)</p>
+                    <h2 class="section-title" data-i18n="history.title">A história vai mudar.</h2>
+                    <p data-i18n="history.p1">Sim, ela vai mudar.</p>
+                    <p data-i18n="history.p2">O David's Farm original continuará sendo a base de tudo, mas conforme o desenvolvimento avança, algumas partes da história serão reescritas, expandidas ou adaptadas. Nosso objetivo é manter a personalidade dos personagens e a essência do universo que muita gente já conhece.</p>
+                    <p data-i18n="history.p3" data-i18n-html>A trama envolvendo o <span class="rgb-text">Coed Mawr</span> continuará sendo uma peça importante da história, mas provavelmente não exatamente da mesma forma que você lembra.</p>
+                    <p data-i18n="history.p4">Vale lembrar que a história ainda está sendo escrita. Estamos construindo o jogo e o universo ao mesmo tempo, então muitas ideias ainda estão tomando forma.</p>
+                    <p data-i18n="history.p5">Mas uma coisa eu posso garantir: eu, Gabriel, vou me esforçar ao máximo para criar uma aventura divertida, dinâmica e memorável. Então fique de olho nas novidades. :)</p>
                 </div>
                 <div class="card-column">
                     <img src="images/history_card.png" alt="Card Historia" class="card-image">
@@ -64,33 +70,33 @@
 
             <div class="content-wrapper devices-section">
                 <div class="text-column">
-                    <h2 class="section-title">Dispositivos</h2>
+                    <h2 class="section-title" data-i18n="devices.title">Dispositivos</h2>
 
                     <div class="devices-layout">
                         <img src="images/consoles.png" alt="Consoles" class="consoles-image">
 
                         <div class="faq-list">
                             <div class="faq-item">
-                                <h3>A versão para consoles novos vai chegar ao mesmo tempo da versão original?</h3>
+                                <h3 data-i18n="devices.faq1q">A versão para consoles novos vai chegar ao mesmo tempo da versão original?</h3>
                                 <div class="faq-answer">
-                                    <p>Vai.</p>
-                                    <p>A versão de Xbox Series está planejada para chegar junto da versão de PC.</p>
-                                    <p>Já a versão de PS5... bem, PS5 é caro pra desgraça. Vamos ver o que acontece.</p>
-                                    <p class="parenthesis">(E eu também não faço a mínima ideia de como colocar um jogo nessas lojas ainda.)</p>
+                                    <p data-i18n="devices.faq1a1">Vai.</p>
+                                    <p data-i18n="devices.faq1a2">A versão de Xbox Series está planejada para chegar junto da versão de PC.</p>
+                                    <p data-i18n="devices.faq1a3">Já a versão de PS5... bem, PS5 é caro pra desgraça. Vamos ver o que acontece.</p>
+                                    <p class="parenthesis" data-i18n="devices.faq1a4">(E eu também não faço a mínima ideia de como colocar um jogo nessas lojas ainda.)</p>
                                 </div>
                             </div>
 
                             <div class="faq-item">
-                                <h3>A versão mobile vai estar na Play Store?</h3>
+                                <h3 data-i18n="devices.faq2q">A versão mobile vai estar na Play Store?</h3>
                                 <div class="faq-answer">
-                                    <p>Tem que ver com os cara lá.</p>
+                                    <p data-i18n="devices.faq2a1">Tem que ver com os cara lá.</p>
                                 </div>
                             </div>
 
                             <div class="faq-item">
-                                <h3>A versão para PC vai ser baixável onde?</h3>
+                                <h3 data-i18n="devices.faq3q">A versão para PC vai ser baixável onde?</h3>
                                 <div class="faq-answer">
-                                    <p>Inicialmente, na Steam.</p>
+                                    <p data-i18n="devices.faq3a1">Inicialmente, na Steam.</p>
                                 </div>
                             </div>
                         </div>
@@ -99,14 +105,14 @@
             </div>
 
             <section class="credits-section" id="credits">
-                <h2 class="section-title">Créditos</h2>
+                <h2 class="section-title" data-i18n="credits.title">Créditos</h2>
 
                 <div class="credits-grid">
                     <article class="credit-card">
                         <img src="https://avatars.githubusercontent.com/u/265530670?v=4" alt="Avatar de eusoudeon" class="credit-avatar">
                         <div class="credit-info">
                             <h3>eusoudeon</h3>
-                            <p>Criador e Programador</p>
+                            <p data-i18n="credits.roleCreatorProgrammer">Criador e Programador</p>
                         </div>
                     </article>
 
@@ -114,7 +120,7 @@
                         <img src="https://avatars.githubusercontent.com/u/244514476?v=4" alt="Avatar de jgnao" class="credit-avatar">
                         <div class="credit-info">
                             <h3>jgnao</h3>
-                            <p>Programador</p>
+                            <p data-i18n="credits.roleProgrammer">Programador</p>
                         </div>
                     </article>
 
@@ -122,7 +128,7 @@
                         <img src="https://avatars.githubusercontent.com/u/291599338?v=4" alt="Avatar de sk8vyrjpeg_" class="credit-avatar">
                         <div class="credit-info">
                             <h3>sk8vyrjpeg_</h3>
-                            <p>Músico e Artista</p>
+                            <p data-i18n="credits.roleMusicianArtist">Músico e Artista</p>
                         </div>
                     </article>
 
@@ -130,39 +136,39 @@
                         <img src="https://avatars.githubusercontent.com/u/55399471?v=4" alt="Avatar de daniyusk" class="credit-avatar">
                         <div class="credit-info">
                             <h3>daniyusk</h3>
-                            <p>Pixel Artist e Programador</p>
+                            <p data-i18n="credits.rolePixelProgrammer">Pixel Artist e Programador</p>
                         </div>
                     </article>
                 </div>
             </section>
 
             <section class="agrinho-section" id="agrinho">
-                <h2 class="section-title">Sobre o Agrinho</h2>
+                <h2 class="section-title" data-i18n="agrinho.title">Sobre o Agrinho</h2>
                 <img src="images/agrinho.png" alt="Logo do Agrinho" class="agrinho-logo">
 
                 <div class="agrinho-copy">
-                    <p>O Agrinho é um programa educacional e de responsabilidade social do Sistema FAEP/SENAR-PR, desenvolvido em parceria com o Governo do Paraná, com atividades e concursos voltados a estudantes e professores.</p>
-                    <p>David's Farm foi inicialmente criado visando disputar e ganhar essa competição. Hoje, porém, o jogo não tem NENHUM vínculo oficial, institucional, criativo ou comercial com o Agrinho, com o Paraná, com o Sistema FAEP/SENAR-PR ou com qualquer iniciativa relacionada.</p>
+                    <p data-i18n="agrinho.p1">O Agrinho é um programa educacional e de responsabilidade social do Sistema FAEP/SENAR-PR, desenvolvido em parceria com o Governo do Paraná, com atividades e concursos voltados a estudantes e professores.</p>
+                    <p data-i18n="agrinho.p2">David's Farm foi inicialmente criado visando disputar e ganhar essa competição. Hoje, porém, o jogo não tem NENHUM vínculo oficial, institucional, criativo ou comercial com o Agrinho, com o Paraná, com o Sistema FAEP/SENAR-PR ou com qualquer iniciativa relacionada.</p>
                 </div>
             </section>
 
             <section class="preview-section" id="preview">
                 <div class="preview-copy">
-                    <h2 class="section-title">Preview</h2>
-                    <p>Tá bom... pra não ficar sem nada, tá aqui uma música em W.I.P que a gente fez.</p>
+                    <h2 class="section-title" data-i18n="preview.title">Preview</h2>
+                    <p data-i18n="preview.intro">Tá bom... pra não ficar sem nada, tá aqui uma música em W.I.P que a gente fez.</p>
                 </div>
 
                 <div class="music-player">
                     <img src="https://avatars.githubusercontent.com/u/291599338?v=4" alt="Avatar de sk8vyrjpeg_" class="music-cover">
 
                     <div class="music-info">
-                        <p class="music-title">W.I.P Preview</p>
-                        <p class="music-credit">Feito por sk8vyr</p>
+                        <p class="music-title" data-i18n="preview.musicTitle">W.I.P Preview</p>
+                        <p class="music-credit" data-i18n="preview.musicCredit">Feito por sk8vyr</p>
 
                         <audio id="preview-audio" preload="metadata" src="music/preview.mp3"></audio>
 
                         <div class="music-controls">
-                            <button class="music-play" id="preview-play" type="button" aria-label="Tocar preview">PLAY</button>
+                            <button class="music-play" id="preview-play" type="button" aria-label="Tocar preview" data-i18n-aria-label="preview.playAria">PLAY</button>
                             <div class="music-progress-wrap">
                                 <input class="music-progress" id="preview-progress" type="range" value="0" min="0" max="100" step="0.1" aria-label="Progresso da música">
                                 <div class="music-time">
@@ -181,8 +187,8 @@
 
             <section class="newsletter-section" id="newsletter">
                 <div class="newsletter-copy">
-                    <h2 class="section-title">Newsletter</h2>
-                    <p>Acompanhe notícias do desenvolvimento do jogo o mais rápido possível... talvez sem spam, não prometo.</p>
+                    <h2 class="section-title" data-i18n="newsletter.title">Newsletter</h2>
+                    <p data-i18n="newsletter.intro">Acompanhe notícias do desenvolvimento do jogo o mais rápido possível... talvez sem spam, não prometo.</p>
                 </div>
 
                 <form
@@ -194,7 +200,7 @@
                     data-uid="15132f23da"
                 >
                     <div class="newsletter-form-row">
-                        <label class="visually-hidden" for="newsletter-email">Seu e-mail</label>
+                        <label class="visually-hidden" for="newsletter-email" data-i18n="newsletter.emailLabel">Seu e-mail</label>
                         <input
                             class="newsletter-input"
                             id="newsletter-email"
@@ -203,12 +209,13 @@
                             inputmode="email"
                             autocomplete="email"
                             placeholder="seu@email.com"
+                            data-i18n-placeholder="newsletter.placeholder"
                             required
                         >
-                        <button class="newsletter-submit" type="submit">ASSINAR</button>
+                        <button class="newsletter-submit" type="submit" data-i18n="newsletter.submit">ASSINAR</button>
                     </div>
 
-                    <p class="newsletter-terms">
+                    <p class="newsletter-terms" data-i18n="newsletter.terms">
                         Ao assinar, você receberá um e-mail para confirmar a inscrição.
                         Sem spam. Cancele quando quiser.
                         Se não aparecer na caixa de entrada, dá uma olhada no spam.
@@ -224,23 +231,23 @@
 
             <div id="david-element" class="david-element">
                 <img src="images/david.gif" alt="David GIF" class="divider-gif" id="david-gif">
-                <span class="divider-text" id="david-text">Sobre a história...</span>
+                <span class="divider-text" id="david-text" data-i18n="divider.history">Sobre a história...</span>
             </div>
         </main>
     </div>
 
     <footer class="site-footer" aria-label="Créditos e avisos do site">
         <div class="footer-inner">
-            <p class="footer-title">Créditos e avisos</p>
+            <p class="footer-title" data-i18n="footer.title">Créditos e avisos</p>
 
             <ul class="footer-credit-list">
-                <li>Imagem dos consoles: montagem ilustrativa com Nintendo 3DS e Sony PSP. Nintendo, Sony, PSP e demais marcas pertencem aos seus respectivos donos; não existe afiliação, patrocínio ou endosso.</li>
-                <li>Agrinho: logo e menção usadas apenas para contexto histórico. O programa pertence ao Sistema FAEP/SENAR-PR; David's Farm não tem vínculo oficial com o Agrinho, Paraná ou entidades relacionadas. <a href="https://www.sistemafaep.org.br/agrinho/" target="_blank" rel="noopener noreferrer">Site oficial do Agrinho</a>.</li>
-                <li>Logo principal de David's Farm: arte provisória gerada por IA; não representa o visual final do jogo e não será usada como asset final.</li>
-                <li>Avatares exibidos nos créditos: imagens públicas dos perfis GitHub da equipe.</li>
-                <li>Música do preview: sk8vyr. Artes, screenshots e conteúdo do jogo: equipe David's Farm.</li>
-                <li>Fontes usadas no site: I Pixel U e Pirkkala, carregadas dos arquivos locais do projeto.</li>
-                <li>Newsletter: formulário integrado ao Kit.</li>
+                <li data-i18n="footer.item1">Imagem dos consoles: montagem ilustrativa com Nintendo 3DS e Sony PSP. Nintendo, Sony, PSP e demais marcas pertencem aos seus respectivos donos; não existe afiliação, patrocínio ou endosso.</li>
+                <li data-i18n="footer.item2" data-i18n-html>Agrinho: logo e menção usadas apenas para contexto histórico. O programa pertence ao Sistema FAEP/SENAR-PR; David's Farm não tem vínculo oficial com o Agrinho, Paraná ou entidades relacionadas. <a href="https://www.sistemafaep.org.br/agrinho/" target="_blank" rel="noopener noreferrer">Site oficial do Agrinho</a>.</li>
+                <li data-i18n="footer.item3">Logo principal de David's Farm: arte provisória gerada por IA; não representa o visual final do jogo e não será usada como asset final.</li>
+                <li data-i18n="footer.item4">Avatares exibidos nos créditos: imagens públicas dos perfis GitHub da equipe.</li>
+                <li data-i18n="footer.item5">Música do preview: sk8vyr. Artes, screenshots e conteúdo do jogo: equipe David's Farm.</li>
+                <li data-i18n="footer.item6">Fontes usadas no site: I Pixel U e Pirkkala, carregadas dos arquivos locais do projeto.</li>
+                <li data-i18n="footer.item7">Newsletter: formulário integrado ao Kit.</li>
             </ul>
         </div>
     </footer>
@@ -252,6 +259,7 @@
             const p2 = document.getElementById('placeholder-2');
             const fontToggle = document.getElementById('font-toggle');
             const fontHint = document.getElementById('font-hint');
+            const langSelect = document.getElementById('lang-select');
             const newsletterForm = document.querySelector('.newsletter-form');
             const newsletterSubmit = document.querySelector('.newsletter-submit');
             const newsletterStatus = document.getElementById('newsletter-status');
@@ -263,6 +271,95 @@
             const previewDuration = document.getElementById('preview-duration');
             const previewVolume = document.getElementById('preview-volume');
 
+            // --- Internationalization (JSON-based) ---
+            const I18N_SUPPORTED = ['pt', 'en', 'es', 'ja'];
+            const I18N_DEFAULT = 'pt';
+            let currentTranslations = {};
+
+            function resolveI18nKey(obj, path) {
+                return path.split('.').reduce(
+                    (acc, part) => (acc && acc[part] != null ? acc[part] : null),
+                    obj
+                );
+            }
+
+            function t(path, fallback) {
+                const value = resolveI18nKey(currentTranslations, path);
+                if (value != null) return value;
+                return fallback == null ? '' : fallback;
+            }
+
+            function applyTranslations() {
+                document.querySelectorAll('[data-i18n]').forEach((el) => {
+                    const value = resolveI18nKey(currentTranslations, el.getAttribute('data-i18n'));
+                    if (value == null) return;
+                    if (el.hasAttribute('data-i18n-html')) {
+                        el.innerHTML = value;
+                    } else {
+                        el.textContent = value;
+                    }
+                });
+
+                const attrMap = [
+                    ['data-i18n-placeholder', 'placeholder'],
+                    ['data-i18n-title', 'title'],
+                    ['data-i18n-aria-label', 'aria-label']
+                ];
+                attrMap.forEach(([dataAttr, targetAttr]) => {
+                    document.querySelectorAll('[' + dataAttr + ']').forEach((el) => {
+                        const value = resolveI18nKey(currentTranslations, el.getAttribute(dataAttr));
+                        if (value != null) el.setAttribute(targetAttr, value);
+                    });
+                });
+            }
+
+            function refreshDividerTexts() {
+                if (isAnimating) return;
+                if (!davidText) return;
+                davidText.textContent = currentState === 1
+                    ? t('divider.history', 'Sobre a história...')
+                    : t('divider.thanks', 'Obrigado por acompanhar! :)');
+            }
+
+            function refreshPreviewAriaLabels() {
+                if (!previewAudio || !previewPlay) return;
+                previewPlay.setAttribute(
+                    'aria-label',
+                    previewAudio.paused
+                        ? t('preview.playAria', 'Tocar preview')
+                        : t('preview.pauseAria', 'Pausar preview')
+                );
+            }
+
+            async function loadLanguage(lang) {
+                if (!I18N_SUPPORTED.includes(lang)) lang = I18N_DEFAULT;
+                try {
+                    const response = await fetch('lang/' + lang + '.json', { cache: 'no-cache' });
+                    if (!response.ok) throw new Error('status ' + response.status);
+                    currentTranslations = await response.json();
+                } catch (error) {
+                    // Keep the Portuguese content already present in the HTML.
+                    return;
+                }
+
+                const htmlLang = currentTranslations.meta && currentTranslations.meta.htmlLang
+                    ? currentTranslations.meta.htmlLang
+                    : lang;
+                document.documentElement.setAttribute('lang', htmlLang);
+
+                applyTranslations();
+                applyFontPreference(usePirkkala);
+                refreshDividerTexts();
+                refreshPreviewAriaLabels();
+
+                if (langSelect) langSelect.value = lang;
+                try {
+                    localStorage.setItem('davids-farm-lang', lang);
+                } catch (error) {
+                    // The language still applies when browser storage is unavailable.
+                }
+            }
+
             let newsletterSubmissionPending = false;
 
             newsletterForm.addEventListener('submit', async (event) => {
@@ -271,9 +368,9 @@
 
                 newsletterSubmissionPending = true;
                 newsletterSubmit.disabled = true;
-                newsletterSubmit.textContent = 'ENVIANDO...';
+                newsletterSubmit.textContent = t('newsletter.sending', 'ENVIANDO...');
                 newsletterStatus.className = 'newsletter-status';
-                newsletterStatus.textContent = 'Enviando sua inscrição...';
+                newsletterStatus.textContent = t('newsletter.statusSending', 'Enviando sua inscrição...');
 
                 try {
                     const body = new URLSearchParams();
@@ -294,14 +391,14 @@
 
                     newsletterEmail.value = '';
                     newsletterStatus.className = 'newsletter-status success';
-                    newsletterStatus.textContent = 'Inscrição enviada! Confira seu e-mail para confirmar.';
+                    newsletterStatus.textContent = t('newsletter.statusSuccess', 'Inscrição enviada! Confira seu e-mail para confirmar.');
                 } catch (error) {
                     newsletterStatus.className = 'newsletter-status error';
-                    newsletterStatus.textContent = 'Não foi possível enviar agora. Tente novamente.';
+                    newsletterStatus.textContent = t('newsletter.statusError', 'Não foi possível enviar agora. Tente novamente.');
                 } finally {
                     newsletterSubmissionPending = false;
                     newsletterSubmit.disabled = false;
-                    newsletterSubmit.textContent = 'ASSINAR';
+                    newsletterSubmit.textContent = t('newsletter.submit', 'ASSINAR');
                 }
             });
 
@@ -320,7 +417,9 @@
                 fontToggle.setAttribute('aria-pressed', String(usePirkkala));
                 fontToggle.setAttribute(
                     'aria-label',
-                    usePirkkala ? 'Alternar para a fonte I Pixel U' : 'Voltar para a fonte Pirkkala'
+                    usePirkkala
+                        ? t('font.ariaSwitchToPixel', 'Alternar para a fonte I Pixel U')
+                        : t('font.ariaSwitchToPirkkala', 'Voltar para a fonte Pirkkala')
                 );
             }
 
@@ -367,6 +466,9 @@
                 usePirkkala = true;
                 applyFontPreference(true);
                 fontHint.classList.remove('hidden');
+
+                if (langSelect) langSelect.value = I18N_DEFAULT;
+                loadLanguage(I18N_DEFAULT);
             });
 
             function formatAudioTime(seconds) {
@@ -394,7 +496,7 @@
                             await previewAudio.play();
                         } catch (error) {
                             previewPlay.textContent = 'PLAY';
-                            previewPlay.setAttribute('aria-label', 'Tocar preview');
+                            previewPlay.setAttribute('aria-label', t('preview.playAria', 'Tocar preview'));
                         }
                     } else {
                         previewAudio.pause();
@@ -403,12 +505,12 @@
 
                 previewAudio.addEventListener('play', () => {
                     previewPlay.textContent = 'PAUSE';
-                    previewPlay.setAttribute('aria-label', 'Pausar preview');
+                    previewPlay.setAttribute('aria-label', t('preview.pauseAria', 'Pausar preview'));
                 });
 
                 previewAudio.addEventListener('pause', () => {
                     previewPlay.textContent = 'PLAY';
-                    previewPlay.setAttribute('aria-label', 'Tocar preview');
+                    previewPlay.setAttribute('aria-label', t('preview.playAria', 'Tocar preview'));
                 });
 
                 previewAudio.addEventListener('loadedmetadata', updatePreviewProgress);
@@ -496,12 +598,12 @@
                 if (currentState === 1) {
                     snakePath.style.strokeDashoffset = `${offset1}px`;
                     davidElement.style.transform = `translate(${startX}px, ${startY - davidElement.offsetHeight/2}px)`;
-                    davidText.textContent = "Sobre a história...";
+                    davidText.textContent = t('divider.history', 'Sobre a história...');
                     davidGif.style.transform = "scaleX(1)";
                 } else {
                     snakePath.style.strokeDashoffset = `${offset2}px`;
                     davidElement.style.transform = `translate(${endX}px, ${endY - davidElement.offsetHeight/2}px)`;
-                    davidText.textContent = "Obrigado por acompanhar! :)";
+                    davidText.textContent = t('divider.thanks', 'Obrigado por acompanhar! :)');
                     davidGif.style.transform = "scaleX(1)";
                 }
             }
@@ -514,7 +616,9 @@
 
                 // Measure target gap dynamically
                 const currentText = davidText.textContent;
-                const targetText = currentState === 2 ? "Obrigado por acompanhar! :)" : "Sobre a história...";
+                const targetText = currentState === 2
+                    ? t('divider.thanks', 'Obrigado por acompanhar! :)')
+                    : t('divider.history', 'Sobre a história...');
 
                 davidText.textContent = targetText;
                 const targetGap = davidElement.offsetWidth + 15;
@@ -549,7 +653,9 @@
 
                 // Text change halfway (while invisible)
                 setTimeout(() => {
-                    davidText.textContent = currentState === 2 ? "Obrigado por acompanhar! :)" : "Sobre a história...";
+                    davidText.textContent = currentState === 2
+                        ? t('divider.thanks', 'Obrigado por acompanhar! :)')
+                        : t('divider.history', 'Sobre a história...');
                     // calculatePath will be triggered by ResizeObserver when text changes
                 }, duration / 2);
 
@@ -644,6 +750,29 @@
                     item.classList.toggle('active');
                 });
             });
+
+            // Language setup: stored preference, then browser language, else default.
+            let initialLang = I18N_DEFAULT;
+            try {
+                const storedLang = localStorage.getItem('davids-farm-lang');
+                if (storedLang && I18N_SUPPORTED.includes(storedLang)) {
+                    initialLang = storedLang;
+                } else {
+                    const browserLang = (navigator.language || '').slice(0, 2).toLowerCase();
+                    if (I18N_SUPPORTED.includes(browserLang)) initialLang = browserLang;
+                }
+            } catch (error) {
+                initialLang = I18N_DEFAULT;
+            }
+
+            if (langSelect) {
+                langSelect.value = initialLang;
+                langSelect.addEventListener('change', () => {
+                    loadLanguage(langSelect.value);
+                });
+            }
+
+            loadLanguage(initialLang);
 
             // Initial setup
             window.addEventListener('load', () => {

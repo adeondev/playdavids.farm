@@ -88,6 +88,42 @@ body {
     color: #ffffff;
 }
 
+.lang-select {
+    position: absolute;
+    top: 50%;
+    right: 86px;
+    transform: translateY(-50%);
+    z-index: 21;
+    font-family: 'I Pixel U', monospace;
+    font-size: clamp(15px, 1.6vw, 18px);
+    color: #cccccc;
+    background-color: #1a1a1a;
+    border: 3px solid #0a0a0a;
+    border-radius: 0;
+    padding: 6px 10px;
+    line-height: 1;
+    cursor: pointer;
+    box-shadow: 3px 3px 0 #000000;
+    -webkit-font-smoothing: none;
+    -moz-osx-font-smoothing: none;
+    font-smooth: never;
+    image-rendering: pixelated;
+}
+
+.lang-select:hover {
+    color: #ffffff;
+    background-color: #242424;
+}
+
+.lang-select:focus-visible {
+    outline: 3px solid #ffffff;
+    outline-offset: 3px;
+}
+
+body.font-pirkkala .lang-select {
+    font-family: 'Pirkkala', monospace;
+}
+
 .font-toggle {
     position: absolute;
     top: 50%;
@@ -961,6 +997,16 @@ body.font-pirkkala .music-time {
 
     .nav-links {
         padding-top: 58px;
+    }
+
+    .lang-select {
+        top: 10px;
+        right: 56px;
+        transform: none;
+        font-size: 15px;
+        padding: 4px 7px;
+        border-width: 2px;
+        box-shadow: 2px 2px 0 #000000;
     }
 
     .content-wrapper {
