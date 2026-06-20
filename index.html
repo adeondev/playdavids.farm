@@ -4,787 +4,919 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>David's Farm</title>
+    <meta name="title" content="David's Farm">
+    <meta property="og:title" content="David's Farm">
+    <meta name="twitter:title" content="David's Farm">
     <link rel="icon" type="image/png" href="images/longset_logo.png">
-    <link rel="stylesheet" href="style.css?v=20260615-34">
+    <link rel="preload" as="image" href="images/hero.png">
+    <link rel="preload" as="image" href="images/logo.png">
+    <link rel="preload" as="image" href="images/david_chair.png">
+    <link rel="preload" as="image" href="images/devlog_button.png">
+    <style>
+        @font-face {
+            font-family: 'Pirkkala';
+            src: url('fonts/pirkkala.ttf') format('truetype');
+            font-style: normal;
+            font-weight: 400;
+            font-display: swap;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            margin: 0;
+            min-height: 100%;
+            background: #080004;
+        }
+
+        body {
+            color: #ffffff;
+            font-family: 'Pirkkala', monospace;
+            -webkit-font-smoothing: none;
+            -moz-osx-font-smoothing: none;
+            font-smooth: never;
+        }
+
+        img {
+            max-width: 100%;
+        }
+
+        .page {
+            min-height: 100vh;
+            background: #080004;
+        }
+
+        .hero {
+            position: relative;
+            width: 100%;
+            height: clamp(88px, 11vw, 145px);
+            overflow: hidden;
+            background: #080004;
+        }
+
+        .hero__image {
+            position: absolute;
+            top: 50%;
+            left: 0;
+            display: block;
+            width: 100%;
+            height: auto;
+            transform: translateY(-50%);
+            image-rendering: pixelated;
+            image-rendering: crisp-edges;
+        }
+
+        .hero__logo {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: clamp(240px, 32vw, 470px);
+            max-width: 84vw;
+            height: auto;
+            transform: translate(-50%, -50%);
+            image-rendering: pixelated;
+            image-rendering: crisp-edges;
+        }
+
+        .demos {
+            width: min(760px, 100%);
+            margin: 0 auto;
+            padding: clamp(24px, 5vw, 46px) 14px clamp(20px, 4vw, 30px);
+            text-align: center;
+        }
+
+        .demos__title {
+            margin: 0 0 clamp(16px, 3vw, 24px);
+            color: #ffffff;
+            font-size: clamp(30px, 5vw, 50px);
+            line-height: 1;
+        }
+
+        .demos__scratch-list {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: clamp(8px, 1.5vw, 14px);
+            width: min(620px, 100%);
+            margin: 0 auto;
+        }
+
+        .demo-button {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: flex-start;
+            gap: clamp(7px, 1.2vw, 11px);
+            min-height: clamp(58px, 6vw, 72px);
+            padding: clamp(6px, 1vw, 9px) clamp(8px, 1.6vw, 14px);
+            color: #000000;
+            text-align: left;
+            text-decoration: none;
+            border: 6px solid transparent;
+            border-image-source: url('images/button.png');
+            border-image-slice: 5 fill;
+            border-image-width: 6px;
+            border-image-repeat: stretch;
+            image-rendering: pixelated;
+        }
+
+        .demo-button:focus-visible {
+            outline: 3px solid #ffffff;
+            outline-offset: 3px;
+        }
+
+        .demo-button--disabled {
+            cursor: default;
+            opacity: 0.55;
+        }
+
+        .demo-button__icon {
+            flex: 0 0 auto;
+            width: clamp(30px, 3.8vw, 42px);
+            height: clamp(30px, 3.8vw, 42px);
+            object-fit: contain;
+            image-rendering: pixelated;
+            image-rendering: crisp-edges;
+        }
+
+        .demo-button__copy {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+            min-width: 0;
+        }
+
+        .demo-button__title,
+        .demo-button__platform {
+            display: block;
+            overflow-wrap: normal;
+            word-break: normal;
+        }
+
+        .demo-button__title {
+            font-size: clamp(17px, 2.3vw, 23px);
+            line-height: 0.95;
+        }
+
+        .demo-button__platform {
+            color: #000000;
+            font-size: clamp(13px, 1.7vw, 17px);
+            line-height: 1;
+        }
+
+        .coming-soon {
+            width: min(1040px, 100%);
+            margin: clamp(18px, 4vw, 30px) auto 0;
+        }
+
+        .coming-soon__title {
+            margin: 0 0 12px;
+            color: #ffffff;
+            font-size: clamp(26px, 4.2vw, 40px);
+            line-height: 1;
+            font-weight: normal;
+            display: inline-flex;
+            align-items: flex-end;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .coming-soon__mascot {
+            width: clamp(30px, 4vw, 46px);
+            height: clamp(30px, 4vw, 46px);
+            image-rendering: pixelated;
+            image-rendering: crisp-edges;
+            transform-origin: 50% 92%;
+            animation: david-chair-rock 1.8s ease-in-out infinite;
+        }
+
+        .coming-soon__list {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: clamp(8px, 1.5vw, 14px);
+        }
+
+        .coming-soon .demo-button {
+            flex-direction: column;
+            justify-content: center;
+            gap: 4px;
+            text-align: center;
+            min-height: clamp(58px, 6vw, 72px);
+        }
+
+        .coming-soon .demo-button__icon {
+            width: clamp(34px, 4vw, 48px);
+            height: clamp(34px, 4vw, 48px);
+        }
+
+        .coming-soon .demo-button__platform {
+            font-size: clamp(17px, 2.1vw, 22px);
+        }
+
+        @keyframes david-chair-rock {
+            0%,
+            100% {
+                transform: scaleX(-1) rotate(-9deg) translateY(1px);
+            }
+
+            50% {
+                transform: scaleX(-1) rotate(9deg) translateY(-1px);
+            }
+        }
+
+        .pixel-divider {
+            width: min(640px, calc(100% - 28px));
+            height: 28px;
+            margin: 0 auto clamp(12px, 2.4vw, 20px);
+            display: block;
+            image-rendering: pixelated;
+        }
+
+        .devlog {
+            width: min(760px, 100%);
+            margin: 0 auto;
+            padding: 0 14px clamp(54px, 8vw, 80px);
+            text-align: center;
+        }
+
+        .devlog__title {
+            margin: 0 0 clamp(14px, 2.6vw, 20px);
+            color: #ffffff;
+            font-size: clamp(30px, 5vw, 50px);
+            line-height: 1;
+            font-weight: normal;
+        }
+
+        .devlog-list {
+            display: grid;
+            gap: clamp(10px, 2vw, 16px);
+            width: min(680px, 100%);
+            margin: 0 auto;
+        }
+
+        .devlog-card {
+            display: grid;
+            grid-template-columns: clamp(78px, 12vw, 108px) 1fr;
+            align-items: center;
+            gap: clamp(10px, 2vw, 16px);
+            width: 100%;
+            padding: clamp(9px, 1.7vw, 13px) clamp(12px, 2.4vw, 18px);
+            color: #ffffff;
+            background: transparent;
+            text-align: left;
+            cursor: pointer;
+            font: inherit;
+            border: 8px solid transparent;
+            border-image-source: url('images/devlog_button.png');
+            border-image-slice: 5 fill;
+            border-image-width: 8px;
+            border-image-repeat: stretch;
+            image-rendering: pixelated;
+        }
+
+        .devlog-card:focus-visible {
+            outline: 3px solid #ffffff;
+            outline-offset: 3px;
+        }
+
+        .devlog-card__thumb-frame {
+            width: 100%;
+            aspect-ratio: 1;
+            padding: 5px;
+            border: 6px solid transparent;
+            border-image-source: url('images/devlog_button.png');
+            border-image-slice: 5 fill;
+            border-image-width: 6px;
+            border-image-repeat: stretch;
+            image-rendering: pixelated;
+        }
+
+        .devlog-card__thumb {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: 42% 65%;
+        }
+
+        .devlog-card__copy {
+            min-width: 0;
+        }
+
+        .devlog-card__title,
+        .devlog-card__date,
+        .devlog-card__hint {
+            display: block;
+        }
+
+        .devlog-card__title {
+            font-size: clamp(21px, 3.3vw, 30px);
+            line-height: 1;
+        }
+
+        .devlog-card__date,
+        .devlog-card__hint {
+            margin-top: 5px;
+            font-size: clamp(14px, 2.2vw, 19px);
+            line-height: 1;
+        }
+
+        .devlog-modal {
+            width: min(1180px, calc(100vw - 20px));
+            max-height: min(94dvh, 960px);
+            padding: clamp(18px, 3.2vw, 36px);
+            color: #ffffff;
+            background: transparent;
+            border: 10px solid transparent;
+            border-image-source: url('images/devlog_button.png');
+            border-image-slice: 5 fill;
+            border-image-width: 10px;
+            border-image-repeat: stretch;
+            image-rendering: pixelated;
+            overflow: auto;
+            scrollbar-color: #ffd08a #3c1712;
+            scrollbar-width: auto;
+        }
+
+        .devlog-modal::backdrop {
+            background: rgba(0, 0, 0, 0.72);
+        }
+
+        .devlog-modal::-webkit-scrollbar {
+            width: 18px;
+        }
+
+        .devlog-modal::-webkit-scrollbar-track {
+            background: #3c1712;
+            border-left: 4px solid #080004;
+        }
+
+        .devlog-modal::-webkit-scrollbar-thumb {
+            background: #ffd08a;
+            border: 4px solid #3c1712;
+            border-radius: 0;
+        }
+
+        .devlog-modal::-webkit-scrollbar-corner {
+            background: #3c1712;
+        }
+
+        .devlog-modal__top {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            gap: 18px;
+            margin-bottom: clamp(16px, 2.6vw, 24px);
+        }
+
+        .devlog-modal__title {
+            margin: 0;
+            color: #ffffff;
+            font-size: clamp(26px, 5vw, 44px);
+            line-height: 1;
+            font-weight: normal;
+        }
+
+        .devlog-modal__date {
+            display: block;
+            margin-top: 8px;
+            font-size: clamp(15px, 2.6vw, 20px);
+            line-height: 1;
+        }
+
+        .devlog-modal__close {
+            flex: 0 0 auto;
+            min-width: 40px;
+            min-height: 36px;
+            color: #000000;
+            background: transparent;
+            cursor: pointer;
+            font: inherit;
+            font-size: 22px;
+            line-height: 1;
+            border: 6px solid transparent;
+            border-image-source: url('images/button.png');
+            border-image-slice: 5 fill;
+            border-image-width: 6px;
+            border-image-repeat: stretch;
+            image-rendering: pixelated;
+        }
+
+        .devlog-modal__close:focus-visible {
+            outline: 3px solid #ffffff;
+            outline-offset: 3px;
+        }
+
+        .devlog-modal__image-frame {
+            padding: 8px;
+            border: 8px solid transparent;
+            border-image-source: url('images/devlog_button.png');
+            border-image-slice: 5 fill;
+            border-image-width: 8px;
+            border-image-repeat: stretch;
+            image-rendering: pixelated;
+        }
+
+        .devlog-modal__image {
+            display: block;
+            width: 100%;
+            aspect-ratio: 4 / 5;
+            object-fit: cover;
+            object-position: 42% 65%;
+        }
+
+        .devlog-modal__body {
+            text-align: left;
+            font-size: clamp(17px, 2.2vw, 23px);
+            line-height: 1.45;
+        }
+
+        .devlog-modal__section {
+            display: grid;
+            grid-template-columns: minmax(210px, 320px) minmax(0, 1fr);
+            gap: clamp(18px, 3vw, 30px);
+            align-items: start;
+            padding-bottom: clamp(18px, 3vw, 28px);
+            margin-bottom: clamp(18px, 3vw, 28px);
+            border-bottom: 6px solid #6d2c22;
+        }
+
+        .devlog-modal__section:last-child {
+            padding-bottom: 0;
+            margin-bottom: 0;
+            border-bottom: 0;
+        }
+
+        .devlog-modal__section-copy {
+            min-width: 0;
+            max-width: 720px;
+        }
+
+        .devlog-modal__section-copy p {
+            margin: 0 0 16px;
+        }
+
+        .devlog-modal__section-copy p:last-child {
+            margin-bottom: 0;
+        }
+
+        .devlog-modal__section-title {
+            margin: 0 0 12px;
+            color: #ffd08a;
+            font-size: clamp(24px, 3.8vw, 34px);
+            line-height: 1;
+            font-weight: normal;
+        }
+
+        .devlog-modal__lead {
+            color: #ffd08a;
+            font-size: clamp(20px, 3vw, 28px);
+            line-height: 1.15;
+        }
+
+        .devlog-modal__signature {
+            margin-top: 22px;
+            color: #ffd08a;
+        }
+
+        .more {
+            width: min(760px, 100%);
+            margin: 0 auto;
+            padding: 0 14px clamp(42px, 7vw, 64px);
+            text-align: center;
+        }
+
+        .more__title {
+            margin: 0 0 clamp(14px, 2.6vw, 20px);
+            color: #ffffff;
+            font-size: clamp(30px, 5vw, 50px);
+            line-height: 1;
+            font-weight: normal;
+        }
+
+        .more__list {
+            display: grid;
+            grid-template-columns: repeat(3, auto);
+            justify-content: center;
+            gap: clamp(7px, 1.2vw, 12px);
+            width: min(520px, 100%);
+            margin: 0 auto;
+        }
+
+        .more-card {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            min-width: clamp(82px, 11vw, 112px);
+            min-height: clamp(42px, 5vw, 52px);
+            padding: 6px 9px;
+            color: #000000;
+            text-decoration: none;
+            border: 6px solid transparent;
+            border-image-source: url('images/button.png');
+            border-image-slice: 5 fill;
+            border-image-width: 6px;
+            border-image-repeat: stretch;
+            image-rendering: pixelated;
+        }
+
+        .more-card:focus-visible {
+            outline: 3px solid #ffffff;
+            outline-offset: 3px;
+        }
+
+        .more-card__icon {
+            flex: 0 0 auto;
+            width: clamp(20px, 3vw, 28px);
+            height: clamp(20px, 3vw, 28px);
+            object-fit: contain;
+            image-rendering: pixelated;
+            image-rendering: crisp-edges;
+        }
+
+        .more-card__label {
+            font-size: clamp(14px, 2vw, 18px);
+            line-height: 1;
+            white-space: nowrap;
+        }
+
+        .site-footer {
+            width: 100%;
+            padding: 22px 14px;
+            color: #ffffff;
+            background: #050002;
+            border-top: 4px solid #3c1712;
+        }
+
+        .site-footer__inner {
+            width: min(980px, 100%);
+            margin: 0 auto;
+            display: grid;
+            gap: 18px;
+            align-items: start;
+        }
+
+        .footer-section {
+            display: grid;
+            gap: 8px;
+            text-align: center;
+        }
+
+        .footer-section__title {
+            margin: 0;
+            color: #ffd08a;
+            font-size: clamp(18px, 2.5vw, 24px);
+            line-height: 1;
+            font-weight: normal;
+        }
+
+        .footer-copy,
+        .footer-list {
+            margin: 0;
+            font-size: clamp(12px, 1.5vw, 15px);
+            line-height: 1.25;
+        }
+
+        .footer-copy + .footer-copy {
+            margin-top: 8px;
+        }
+
+        .footer-list {
+            padding-left: 0;
+            list-style: none;
+            display: grid;
+            gap: 7px;
+            max-width: 820px;
+            margin: 0 auto;
+        }
+
+        .footer-list a {
+            color: #ffd08a;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .coming-soon__mascot {
+                animation: none;
+            }
+        }
+
+        @media (max-width: 700px) {
+            .hero {
+                height: clamp(82px, 23vw, 104px);
+            }
+
+            .hero__image {
+                top: 0;
+                transform: none;
+            }
+
+            .hero__logo {
+                width: clamp(190px, 68vw, 285px);
+            }
+
+            .demos {
+                padding: 24px 10px 26px;
+            }
+
+            .demo-button {
+                min-height: 64px;
+                gap: 6px;
+                padding: 6px;
+            }
+
+            .demo-button__icon {
+                width: 28px;
+                height: 28px;
+            }
+
+            .demo-button__title {
+                font-size: clamp(14px, 4.4vw, 18px);
+            }
+
+            .demo-button__platform {
+                font-size: clamp(11px, 3.5vw, 14px);
+            }
+
+            .coming-soon .demo-button__icon {
+                width: 34px;
+                height: 34px;
+            }
+
+            .coming-soon .demo-button__platform {
+                font-size: clamp(15px, 4.5vw, 18px);
+            }
+
+            .coming-soon__mascot {
+                width: 34px;
+                height: 34px;
+            }
+
+            .coming-soon__list {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+
+            .devlog {
+                padding: 0 10px 54px;
+            }
+
+            .pixel-divider {
+                margin-bottom: 10px;
+            }
+
+            .devlog-modal {
+                width: calc(100vw - 16px);
+                max-height: 90dvh;
+                padding: 16px;
+            }
+
+            .devlog-modal__top {
+                gap: 10px;
+            }
+
+            .devlog-modal__body {
+                font-size: clamp(17px, 4.8vw, 21px);
+            }
+
+            .devlog-modal__section {
+                grid-template-columns: 1fr;
+            }
+
+            .devlog-modal__section .devlog-modal__image-frame {
+                width: min(280px, 100%);
+                margin: 0 auto;
+            }
+
+            .more__list {
+                grid-template-columns: repeat(3, auto);
+                width: 100%;
+            }
+
+            .more-card {
+                min-width: 88px;
+            }
+
+            .site-footer__inner {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
-<body class="font-pirkkala">
-    <header class="site-header">
-        <img src="images/longset_logo.png" alt="Longset" class="header-logo">
-        <nav class="nav-links">
-            <a href="#" class="active" data-i18n="nav.home">Home</a>
-            <a href="#newsletter" data-i18n="nav.newsletter">Newsletter</a>
-            <a href="#credits" data-i18n="nav.credits">Créditos</a>
-        </nav>
-        <select class="lang-select" id="lang-select" aria-label="Idioma / Language">
-            <option value="pt">Português</option>
-            <option value="en">English</option>
-            <option value="es">Español</option>
-            <option value="ja">日本語</option>
-        </select>
-        <button class="font-toggle active" id="font-toggle" type="button" aria-label="Alternar para a fonte I Pixel U" aria-pressed="true" title="Trocar fonte" data-i18n-title="font.toggleTitle">
-            Aa
-        </button>
-        <button class="font-hint" id="font-hint" type="button" aria-label="Fechar aviso de troca de fonte" data-i18n="font.hint" data-i18n-aria-label="font.hintAria">
-            Dificil de ler? Mude a fonte aqui!
-        </button>
-    </header>
-    <div class="page-card">
-        <main class="container">
-            <img src="images/logo.png" alt="David's Farm Logo" class="logo">
-            <p class="logo-disclaimer" data-i18n="logo.disclaimer">
-                Esta logo foi gerada por inteligência artificial e é PROVISÓRIA.
-                Não apoiamos conteúdo artístico gerado por IA. O jogo final não usará artes, personagens,
-                música, roteiro ou assets gerados por IA.
-            </p>
-            <div class="content-wrapper">
-                <div class="card-column">
-                    <img src="images/2yearscard.png" alt="Card 2 Anos" class="card-image">
-                </div>
-                <div class="text-column">
-                    <p data-i18n="intro.p1">Olá! Seja bem-vindo ao site oficial de David's Farm.</p>
-                    <p data-i18n="intro.p2">Eu sou Gabriel, mais conhecido como Deon, criador e desenvolvedor principal do projeto. Este site existe por um motivo simples: compartilhar a evolução do jogo com quem tiver curiosidade de acompanhar essa jornada.</p>
-                    <p data-i18n="intro.p3">Por mais maluco que pareça, David's Farm está se tornando um projeto real. Atualmente, uma pequena equipe de 4 desenvolvedores trabalha no jogo utilizando C++.</p>
-                    <p data-i18n="intro.p4">Nosso objetivo é lançar o projeto para PC, Mobile e Xbox Series. E... é, a gente também pretende portar para Nintendo 3DS, PSP e alguns consoles clássicos compatíveis. Não pergunte por quê. Nós também não temos certeza.</p>
-                    <p data-i18n="intro.p5">A longo prazo, pretendemos publicar o jogo na Steam. Então fique de olho nas novidades.</p>
-                    <p class="signature" data-i18n="intro.signature">— Deon • 14/06/2026</p>
-                </div>
+<body>
+    <main class="page">
+        <section class="hero" aria-label="Hero de David's Farm">
+            <img class="hero__image" src="images/hero.png" alt="Cena pixel art de David's Farm">
+            <img class="hero__logo" src="images/logo.png" alt="David's Farm">
+        </section>
+
+        <section class="demos" aria-labelledby="demos-title">
+            <h1 class="demos__title" id="demos-title">Jogue as Demos</h1>
+
+            <div class="demos__scratch-list">
+                <a class="demo-button" href="https://scratch.mit.edu/projects/1005715087/" target="_blank" rel="noopener noreferrer">
+                    <img class="demo-button__icon" src="images/scratch_icon.png" alt="">
+                    <span class="demo-button__copy">
+                        <span class="demo-button__title">David's Farm</span>
+                        <span class="demo-button__platform">Scratch</span>
+                    </span>
+                </a>
+
+                <a class="demo-button" href="https://scratch.mit.edu/projects/1168676248/" target="_blank" rel="noopener noreferrer">
+                    <img class="demo-button__icon" src="images/scratch_icon.png" alt="">
+                    <span class="demo-button__copy">
+                        <span class="demo-button__title">Pollution Zero</span>
+                        <span class="demo-button__platform">Scratch</span>
+                    </span>
+                </a>
             </div>
 
-            <div class="divider-placeholder" id="placeholder-1" style="height: 1px; margin: 80px 0 40px 0;"></div>
+            <div class="coming-soon">
+                <h2 class="coming-soon__title">
+                    <span>Em breve</span>
+                    <img class="coming-soon__mascot" src="images/david_chair.png" alt="">
+                </h2>
+                <div class="coming-soon__list">
+                    <div class="demo-button demo-button--disabled" aria-disabled="true">
+                        <img class="demo-button__icon" src="images/steam_icon.png" alt="">
+                        <span class="demo-button__copy">
+                            <span class="demo-button__platform">Steam</span>
+                        </span>
+                    </div>
 
-            <div class="content-wrapper history-section">
-                <div class="text-column">
-                    <h2 class="section-title" data-i18n="history.title">A história vai mudar.</h2>
-                    <p data-i18n="history.p1">Sim, ela vai mudar.</p>
-                    <p data-i18n="history.p2">O David's Farm original continuará sendo a base de tudo, mas conforme o desenvolvimento avança, algumas partes da história serão reescritas, expandidas ou adaptadas. Nosso objetivo é manter a personalidade dos personagens e a essência do universo que muita gente já conhece.</p>
-                    <p data-i18n="history.p3" data-i18n-html>A trama envolvendo o <span class="rgb-text">Coed Mawr</span> continuará sendo uma peça importante da história, mas provavelmente não exatamente da mesma forma que você lembra.</p>
-                    <p data-i18n="history.p4">Vale lembrar que a história ainda está sendo escrita. Estamos construindo o jogo e o universo ao mesmo tempo, então muitas ideias ainda estão tomando forma.</p>
-                    <p data-i18n="history.p5">Mas uma coisa eu posso garantir: eu, Gabriel, vou me esforçar ao máximo para criar uma aventura divertida, dinâmica e memorável. Então fique de olho nas novidades. :)</p>
-                </div>
-                <div class="card-column">
-                    <img src="images/history_card.png" alt="Card Historia" class="card-image">
-                </div>
-            </div>
+                    <div class="demo-button demo-button--disabled" aria-disabled="true">
+                        <img class="demo-button__icon" src="images/play_store_icon.png" alt="">
+                        <span class="demo-button__copy">
+                            <span class="demo-button__platform">Play Store</span>
+                        </span>
+                    </div>
 
-            <div class="divider-placeholder" id="placeholder-2" style="height: 1px; margin: 40px 0 80px 0;"></div>
+                    <div class="demo-button demo-button--disabled" aria-disabled="true">
+                        <img class="demo-button__icon" src="images/apple_icon.png" alt="">
+                        <span class="demo-button__copy">
+                            <span class="demo-button__platform">App Store</span>
+                        </span>
+                    </div>
 
-            <div class="content-wrapper devices-section">
-                <div class="text-column">
-                    <h2 class="section-title" data-i18n="devices.title">Dispositivos</h2>
-
-                    <div class="devices-layout">
-                        <img src="images/consoles.png" alt="Consoles" class="consoles-image">
-
-                        <div class="faq-list">
-                            <div class="faq-item">
-                                <h3 data-i18n="devices.faq1q">A versão para consoles novos vai chegar ao mesmo tempo da versão original?</h3>
-                                <div class="faq-answer">
-                                    <p data-i18n="devices.faq1a1">Vai.</p>
-                                    <p data-i18n="devices.faq1a2">A versão de Xbox Series está planejada para chegar junto da versão de PC.</p>
-                                    <p data-i18n="devices.faq1a3">Já a versão de PS5... bem, PS5 é caro pra desgraça. Vamos ver o que acontece.</p>
-                                    <p class="parenthesis" data-i18n="devices.faq1a4">(E eu também não faço a mínima ideia de como colocar um jogo nessas lojas ainda.)</p>
-                                </div>
-                            </div>
-
-                            <div class="faq-item">
-                                <h3 data-i18n="devices.faq2q">A versão mobile vai estar na Play Store?</h3>
-                                <div class="faq-answer">
-                                    <p data-i18n="devices.faq2a1">Tem que ver com os cara lá.</p>
-                                </div>
-                            </div>
-
-                            <div class="faq-item">
-                                <h3 data-i18n="devices.faq3q">A versão para PC vai ser baixável onde?</h3>
-                                <div class="faq-answer">
-                                    <p data-i18n="devices.faq3a1">Inicialmente, na Steam.</p>
-                                </div>
-                            </div>
-                        </div>
+                    <div class="demo-button demo-button--disabled" aria-disabled="true">
+                        <img class="demo-button__icon" src="images/xbox_icon.png" alt="">
+                        <span class="demo-button__copy">
+                            <span class="demo-button__platform">Xbox</span>
+                        </span>
                     </div>
                 </div>
             </div>
+        </section>
 
-            <section class="credits-section" id="credits">
-                <h2 class="section-title" data-i18n="credits.title">Créditos</h2>
+        <svg class="pixel-divider" viewBox="0 0 320 28" aria-hidden="true">
+            <rect x="0" y="11" width="24" height="6" fill="#8b3f2f" />
+            <rect x="32" y="11" width="24" height="6" fill="#c06a3b" />
+            <rect x="64" y="11" width="24" height="6" fill="#8b3f2f" />
+            <rect x="96" y="11" width="24" height="6" fill="#c06a3b" />
+            <rect x="128" y="11" width="64" height="6" fill="#ffd08a" />
+            <rect x="200" y="11" width="24" height="6" fill="#c06a3b" />
+            <rect x="232" y="11" width="24" height="6" fill="#8b3f2f" />
+            <rect x="264" y="11" width="24" height="6" fill="#c06a3b" />
+            <rect x="296" y="11" width="24" height="6" fill="#8b3f2f" />
+            <rect x="120" y="3" width="8" height="8" fill="#ffd08a" />
+            <rect x="192" y="17" width="8" height="8" fill="#ffd08a" />
+        </svg>
 
-                <div class="credits-grid">
-                    <article class="credit-card">
-                        <img src="https://avatars.githubusercontent.com/u/265530670?v=4" alt="Avatar de eusoudeon" class="credit-avatar">
-                        <div class="credit-info">
-                            <h3>eusoudeon</h3>
-                            <p data-i18n="credits.roleCreatorProgrammer">Criador e Programador</p>
-                        </div>
-                    </article>
+        <section class="devlog" aria-labelledby="devlog-title">
+            <h2 class="devlog__title" id="devlog-title">Devlog</h2>
 
-                    <article class="credit-card">
-                        <img src="https://avatars.githubusercontent.com/u/244514476?v=4" alt="Avatar de jgnao" class="credit-avatar">
-                        <div class="credit-info">
-                            <h3>jgnao</h3>
-                            <p data-i18n="credits.roleProgrammer">Programador</p>
-                        </div>
-                    </article>
+            <div class="devlog-list">
+                <button class="devlog-card" type="button" data-devlog-open="devlog-modal-intro">
+                    <span class="devlog-card__thumb-frame">
+                        <img class="devlog-card__thumb" src="images/2yearscard.png" alt="">
+                    </span>
+                    <span class="devlog-card__copy">
+                        <span class="devlog-card__title">O que será do David's Farm?</span>
+                        <span class="devlog-card__date">14/06/2026</span>
+                        <span class="devlog-card__hint">Clique para ler mais...</span>
+                    </span>
+                </button>
 
-                    <article class="credit-card">
-                        <img src="https://avatars.githubusercontent.com/u/291599338?v=4" alt="Avatar de sk8vyrjpeg_" class="credit-avatar">
-                        <div class="credit-info">
-                            <h3>sk8vyrjpeg_</h3>
-                            <p data-i18n="credits.roleMusicianArtist">Músico e Artista</p>
-                        </div>
-                    </article>
-
-                    <article class="credit-card">
-                        <img src="https://avatars.githubusercontent.com/u/55399471?v=4" alt="Avatar de daniyusk" class="credit-avatar">
-                        <div class="credit-info">
-                            <h3>daniyusk</h3>
-                            <p data-i18n="credits.rolePixelProgrammer">Pixel Artist e Programador</p>
-                        </div>
-                    </article>
-                </div>
-            </section>
-
-            <section class="agrinho-section" id="agrinho">
-                <h2 class="section-title" data-i18n="agrinho.title">Sobre o Agrinho</h2>
-                <img src="images/agrinho.png" alt="Logo do Agrinho" class="agrinho-logo">
-
-                <div class="agrinho-copy">
-                    <p data-i18n="agrinho.p1">O Agrinho é um programa educacional e de responsabilidade social do Sistema FAEP/SENAR-PR, desenvolvido em parceria com o Governo do Paraná, com atividades e concursos voltados a estudantes e professores.</p>
-                    <p data-i18n="agrinho.p2">David's Farm foi inicialmente criado visando disputar e ganhar essa competição. Hoje, porém, o jogo não tem NENHUM vínculo oficial, institucional, criativo ou comercial com o Agrinho, com o Paraná, com o Sistema FAEP/SENAR-PR ou com qualquer iniciativa relacionada.</p>
-                </div>
-            </section>
-
-            <section class="preview-section" id="preview">
-                <div class="preview-copy">
-                    <h2 class="section-title" data-i18n="preview.title">Preview</h2>
-                    <p data-i18n="preview.intro">Tá bom... pra não ficar sem nada, tá aqui uma música em W.I.P que a gente fez.</p>
-                </div>
-
-                <div class="music-player">
-                    <img src="https://avatars.githubusercontent.com/u/291599338?v=4" alt="Avatar de sk8vyrjpeg_" class="music-cover">
-
-                    <div class="music-info">
-                        <p class="music-title" data-i18n="preview.musicTitle">W.I.P Preview</p>
-                        <p class="music-credit" data-i18n="preview.musicCredit">Feito por sk8vyr</p>
-
-                        <audio id="preview-audio" preload="metadata" src="music/preview.mp3"></audio>
-
-                        <div class="music-controls">
-                            <button class="music-play" id="preview-play" type="button" aria-label="Tocar preview" data-i18n-aria-label="preview.playAria">PLAY</button>
-                            <div class="music-progress-wrap">
-                                <input class="music-progress" id="preview-progress" type="range" value="0" min="0" max="100" step="0.1" aria-label="Progresso da música">
-                                <div class="music-time">
-                                    <span id="preview-current">0:00</span>
-                                    <span id="preview-duration">0:00</span>
-                                </div>
-                            </div>
-                            <div class="music-volume-control">
-                                <label class="music-volume-label" for="preview-volume">VOL</label>
-                                <input class="music-volume" id="preview-volume" type="range" value="60" min="0" max="100" step="1" aria-label="Volume da música">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <section class="newsletter-section" id="newsletter">
-                <div class="newsletter-copy">
-                    <h2 class="section-title" data-i18n="newsletter.title">Newsletter</h2>
-                    <p data-i18n="newsletter.intro">Acompanhe notícias do desenvolvimento do jogo o mais rápido possível... talvez sem spam, não prometo.</p>
-                </div>
-
-                <form
-                    class="newsletter-form"
-                    action="https://app.kit.com/forms/9569665/subscriptions"
-                    method="post"
-                    target="kit-newsletter-target"
-                    data-sv-form="9569665"
-                    data-uid="15132f23da"
-                >
-                    <div class="newsletter-form-row">
-                        <label class="visually-hidden" for="newsletter-email" data-i18n="newsletter.emailLabel">Seu e-mail</label>
-                        <input
-                            class="newsletter-input"
-                            id="newsletter-email"
-                            name="email_address"
-                            type="email"
-                            inputmode="email"
-                            autocomplete="email"
-                            placeholder="seu@email.com"
-                            data-i18n-placeholder="newsletter.placeholder"
-                            required
-                        >
-                        <button class="newsletter-submit" type="submit" data-i18n="newsletter.submit">ASSINAR</button>
-                    </div>
-
-                    <p class="newsletter-terms" data-i18n="newsletter.terms">
-                        Ao assinar, você receberá um e-mail para confirmar a inscrição.
-                        Sem spam. Cancele quando quiser.
-                        Se não aparecer na caixa de entrada, dá uma olhada no spam.
-                    </p>
-                    <p class="newsletter-status" id="newsletter-status" aria-live="polite"></p>
-                </form>
-            </section>
-
-            <!-- Dynamic Snake Divider Elements -->
-            <svg id="snake-canvas" class="snake-canvas" preserveAspectRatio="none">
-                <path id="snake-path" class="snake-path" d="" />
-            </svg>
-
-            <div id="david-element" class="david-element">
-                <img src="images/david.gif" alt="David GIF" class="divider-gif" id="david-gif">
-                <span class="divider-text" id="david-text" data-i18n="divider.history">Sobre a história...</span>
             </div>
-        </main>
-    </div>
+        </section>
 
-    <footer class="site-footer" aria-label="Créditos e avisos do site">
-        <div class="footer-inner">
-            <p class="footer-title" data-i18n="footer.title">Créditos e avisos</p>
+        <svg class="pixel-divider" viewBox="0 0 320 28" aria-hidden="true">
+            <rect x="0" y="11" width="24" height="6" fill="#8b3f2f" />
+            <rect x="32" y="11" width="24" height="6" fill="#c06a3b" />
+            <rect x="64" y="11" width="24" height="6" fill="#8b3f2f" />
+            <rect x="96" y="11" width="24" height="6" fill="#c06a3b" />
+            <rect x="128" y="11" width="64" height="6" fill="#ffd08a" />
+            <rect x="200" y="11" width="24" height="6" fill="#c06a3b" />
+            <rect x="232" y="11" width="24" height="6" fill="#8b3f2f" />
+            <rect x="264" y="11" width="24" height="6" fill="#c06a3b" />
+            <rect x="296" y="11" width="24" height="6" fill="#8b3f2f" />
+            <rect x="120" y="3" width="8" height="8" fill="#ffd08a" />
+            <rect x="192" y="17" width="8" height="8" fill="#ffd08a" />
+        </svg>
 
-            <ul class="footer-credit-list">
-                <li data-i18n="footer.item1">Imagem dos consoles: montagem ilustrativa com Nintendo 3DS e Sony PSP. Nintendo, Sony, PSP e demais marcas pertencem aos seus respectivos donos; não existe afiliação, patrocínio ou endosso.</li>
-                <li data-i18n="footer.item2" data-i18n-html>Agrinho: logo e menção usadas apenas para contexto histórico. O programa pertence ao Sistema FAEP/SENAR-PR; David's Farm não tem vínculo oficial com o Agrinho, Paraná ou entidades relacionadas. <a href="https://www.sistemafaep.org.br/agrinho/" target="_blank" rel="noopener noreferrer">Site oficial do Agrinho</a>.</li>
-                <li data-i18n="footer.item3">Logo principal de David's Farm: arte provisória gerada por IA; não representa o visual final do jogo e não será usada como asset final.</li>
-                <li data-i18n="footer.item4">Avatares exibidos nos créditos: imagens públicas dos perfis GitHub da equipe.</li>
-                <li data-i18n="footer.item5">Música do preview: sk8vyr. Artes, screenshots e conteúdo do jogo: equipe David's Farm.</li>
-                <li data-i18n="footer.item6">Fontes usadas no site: I Pixel U e Pirkkala, carregadas dos arquivos locais do projeto.</li>
-                <li data-i18n="footer.item7">Newsletter: formulário integrado ao Kit.</li>
-            </ul>
+        <section class="more" aria-labelledby="more-title">
+            <h2 class="more__title" id="more-title">Ver mais</h2>
+
+            <div class="more__list">
+                <a class="more-card" href="retro/">
+                    <img class="more-card__icon" src="images/retro_icon.png" alt="">
+                    <span class="more-card__label">Retro</span>
+                </a>
+
+                <a class="more-card" href="newsletter/">
+                    <img class="more-card__icon" src="images/newsletter_icon.png" alt="">
+                    <span class="more-card__label">Newsletter</span>
+                </a>
+
+                <a class="more-card" href="creditos/">
+                    <img class="more-card__icon" src="images/credits_icon.png" alt="">
+                    <span class="more-card__label">Créditos</span>
+                </a>
+            </div>
+        </section>
+
+        <dialog class="devlog-modal" id="devlog-modal-intro" aria-labelledby="devlog-modal-intro-title">
+            <div class="devlog-modal__top">
+                <div>
+                    <h2 class="devlog-modal__title" id="devlog-modal-intro-title">O que será do David's Farm?</h2>
+                    <span class="devlog-modal__date">Escrito em 14/06/2026</span>
+                </div>
+                <button class="devlog-modal__close" type="button" data-devlog-close aria-label="Fechar devlog">X</button>
+            </div>
+
+            <article class="devlog-modal__body">
+                <section class="devlog-modal__section">
+                    <div class="devlog-modal__image-frame">
+                        <img class="devlog-modal__image" src="images/2yearscard.png" alt="">
+                    </div>
+
+                    <div class="devlog-modal__section-copy">
+                        <h3 class="devlog-modal__section-title">O projeto</h3>
+                        <p class="devlog-modal__lead">Olá! Seja bem-vindo ao site oficial de David's Farm.</p>
+                        <p>Eu sou Gabriel, mais conhecido como Deon, criador e desenvolvedor principal do projeto. Este site existe por um motivo simples: compartilhar a evolução do jogo com quem tiver curiosidade de acompanhar essa jornada.</p>
+                        <p>Por mais maluco que pareça, David's Farm está se tornando um projeto real. Atualmente, uma pequena equipe de 4 desenvolvedores trabalha no jogo utilizando C++.</p>
+                        <p>Nosso objetivo é lançar o projeto para PC, Mobile e Xbox Series. E... é, a gente também pretende portar para Nintendo 3DS, PSP e alguns consoles clássicos compatíveis. Não pergunte por quê. Nós também não temos certeza.</p>
+                        <p>A longo prazo, pretendemos publicar o jogo na Steam. Então fique de olho nas novidades.</p>
+                    </div>
+                </section>
+
+                <section class="devlog-modal__section">
+                    <div class="devlog-modal__image-frame">
+                        <img class="devlog-modal__image" src="images/history_card.png" alt="">
+                    </div>
+
+                    <div class="devlog-modal__section-copy">
+                        <h3 class="devlog-modal__section-title">A história</h3>
+                        <p class="devlog-modal__lead">A história vai mudar. Sim, ela vai mudar.</p>
+                        <p>O David's Farm original continuará sendo a base de tudo, mas conforme o desenvolvimento avança, algumas partes da história serão reescritas, expandidas ou adaptadas. Nosso objetivo é manter a personalidade dos personagens e a essência do universo que muita gente já conhece.</p>
+                        <p>A trama envolvendo o Coed Mawr continuará sendo uma peça importante da história, mas provavelmente não exatamente da mesma forma que você lembra.</p>
+                        <p>Vale lembrar que a história ainda está sendo escrita. Estamos construindo o jogo e o universo ao mesmo tempo, então muitas ideias ainda estão tomando forma.</p>
+                        <p>Mas uma coisa eu posso garantir: eu, Gabriel, vou me esforçar ao máximo para criar uma aventura divertida, dinâmica e memorável. Então fique de olho nas novidades. :)</p>
+                        <p class="devlog-modal__signature">— Deon • 14/06/2026</p>
+                    </div>
+                </section>
+            </article>
+        </dialog>
+    </main>
+
+    <footer class="site-footer" id="credits">
+        <div class="site-footer__inner">
+            <section class="footer-section" aria-labelledby="credits-title">
+                <h2 class="footer-section__title" id="credits-title">Créditos e avisos</h2>
+
+                <ul class="footer-list">
+                    <li>Imagem dos consoles: montagem ilustrativa com Nintendo 3DS e Sony PSP. Nintendo, Sony, PSP e demais marcas pertencem aos seus respectivos donos; não existe afiliação, patrocínio ou endosso.</li>
+                    <li>Agrinho: logo e menção usadas apenas para contexto histórico. O programa pertence ao Sistema FAEP/SENAR-PR; David's Farm não tem vínculo oficial com o Agrinho, Paraná ou entidades relacionadas. <a href="https://www.sistemafaep.org.br/agrinho/" target="_blank" rel="noopener noreferrer">Site oficial do Agrinho</a>.</li>
+                    <li>Logo principal de David's Farm: arte provisória gerada por IA; não representa o visual final do jogo e não será usada como asset final.</li>
+                    <li>Avatares exibidos nos créditos: imagens públicas dos perfis GitHub da equipe.</li>
+                    <li>Música do preview: sk8vyr. Artes, screenshots e conteúdo do jogo: equipe David's Farm.</li>
+                    <li>Fontes usadas no site: I Pixel U e Pirkkala, carregadas dos arquivos locais do projeto.</li>
+                    <li>Newsletter: formulário integrado ao Kit.</li>
+                </ul>
+            </section>
         </div>
     </footer>
 
     <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const container = document.querySelector('.container');
-            const p1 = document.getElementById('placeholder-1');
-            const p2 = document.getElementById('placeholder-2');
-            const fontToggle = document.getElementById('font-toggle');
-            const fontHint = document.getElementById('font-hint');
-            const langSelect = document.getElementById('lang-select');
-            const newsletterForm = document.querySelector('.newsletter-form');
-            const newsletterSubmit = document.querySelector('.newsletter-submit');
-            const newsletterStatus = document.getElementById('newsletter-status');
-            const newsletterEmail = document.getElementById('newsletter-email');
-            const previewAudio = document.getElementById('preview-audio');
-            const previewPlay = document.getElementById('preview-play');
-            const previewProgress = document.getElementById('preview-progress');
-            const previewCurrent = document.getElementById('preview-current');
-            const previewDuration = document.getElementById('preview-duration');
-            const previewVolume = document.getElementById('preview-volume');
+        document.querySelectorAll('[data-devlog-open]').forEach((button) => {
+            button.addEventListener('click', () => {
+                const modal = document.getElementById(button.dataset.devlogOpen);
+                modal.showModal();
+            });
+        });
 
-            // --- Internationalization (JSON-based) ---
-            const I18N_SUPPORTED = ['pt', 'en', 'es', 'ja'];
-            const I18N_DEFAULT = 'pt';
-            let currentTranslations = {};
-
-            function resolveI18nKey(obj, path) {
-                return path.split('.').reduce(
-                    (acc, part) => (acc && acc[part] != null ? acc[part] : null),
-                    obj
-                );
-            }
-
-            function t(path, fallback) {
-                const value = resolveI18nKey(currentTranslations, path);
-                if (value != null) return value;
-                return fallback == null ? '' : fallback;
-            }
-
-            function applyTranslations() {
-                document.querySelectorAll('[data-i18n]').forEach((el) => {
-                    const value = resolveI18nKey(currentTranslations, el.getAttribute('data-i18n'));
-                    if (value == null) return;
-                    if (el.hasAttribute('data-i18n-html')) {
-                        el.innerHTML = value;
-                    } else {
-                        el.textContent = value;
-                    }
-                });
-
-                const attrMap = [
-                    ['data-i18n-placeholder', 'placeholder'],
-                    ['data-i18n-title', 'title'],
-                    ['data-i18n-aria-label', 'aria-label']
-                ];
-                attrMap.forEach(([dataAttr, targetAttr]) => {
-                    document.querySelectorAll('[' + dataAttr + ']').forEach((el) => {
-                        const value = resolveI18nKey(currentTranslations, el.getAttribute(dataAttr));
-                        if (value != null) el.setAttribute(targetAttr, value);
-                    });
-                });
-            }
-
-            function refreshDividerTexts() {
-                if (isAnimating) return;
-                if (!davidText) return;
-                davidText.textContent = currentState === 1
-                    ? t('divider.history', 'Sobre a história...')
-                    : t('divider.thanks', 'Obrigado por acompanhar! :)');
-            }
-
-            function refreshPreviewAriaLabels() {
-                if (!previewAudio || !previewPlay) return;
-                previewPlay.setAttribute(
-                    'aria-label',
-                    previewAudio.paused
-                        ? t('preview.playAria', 'Tocar preview')
-                        : t('preview.pauseAria', 'Pausar preview')
-                );
-            }
-
-            async function loadLanguage(lang) {
-                if (!I18N_SUPPORTED.includes(lang)) lang = I18N_DEFAULT;
-                try {
-                    const response = await fetch('lang/' + lang + '.json', { cache: 'no-cache' });
-                    if (!response.ok) throw new Error('status ' + response.status);
-                    currentTranslations = await response.json();
-                } catch (error) {
-                    // Keep the Portuguese content already present in the HTML.
-                    return;
-                }
-
-                const htmlLang = currentTranslations.meta && currentTranslations.meta.htmlLang
-                    ? currentTranslations.meta.htmlLang
-                    : lang;
-                document.documentElement.setAttribute('lang', htmlLang);
-
-                applyTranslations();
-                applyFontPreference(usePirkkala);
-                refreshDividerTexts();
-                refreshPreviewAriaLabels();
-
-                if (langSelect) langSelect.value = lang;
-                try {
-                    localStorage.setItem('davids-farm-lang', lang);
-                } catch (error) {
-                    // The language still applies when browser storage is unavailable.
-                }
-            }
-
-            let newsletterSubmissionPending = false;
-
-            newsletterForm.addEventListener('submit', async (event) => {
-                event.preventDefault();
-                if (newsletterSubmissionPending) return;
-
-                newsletterSubmissionPending = true;
-                newsletterSubmit.disabled = true;
-                newsletterSubmit.textContent = t('newsletter.sending', 'ENVIANDO...');
-                newsletterStatus.className = 'newsletter-status';
-                newsletterStatus.textContent = t('newsletter.statusSending', 'Enviando sua inscrição...');
-
-                try {
-                    const body = new URLSearchParams();
-                    body.set(newsletterEmail.name, newsletterEmail.value.trim());
-
-                    const response = await fetch(newsletterForm.action, {
-                        method: 'POST',
-                        headers: {
-                            'Accept': 'text/html',
-                            'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
-                        },
-                        body
-                    });
-
-                    if (!response.ok) {
-                        throw new Error(`Kit returned ${response.status}`);
-                    }
-
-                    newsletterEmail.value = '';
-                    newsletterStatus.className = 'newsletter-status success';
-                    newsletterStatus.textContent = t('newsletter.statusSuccess', 'Inscrição enviada! Confira seu e-mail para confirmar.');
-                } catch (error) {
-                    newsletterStatus.className = 'newsletter-status error';
-                    newsletterStatus.textContent = t('newsletter.statusError', 'Não foi possível enviar agora. Tente novamente.');
-                } finally {
-                    newsletterSubmissionPending = false;
-                    newsletterSubmit.disabled = false;
-                    newsletterSubmit.textContent = t('newsletter.submit', 'ASSINAR');
-                }
+        document.querySelectorAll('.devlog-modal').forEach((modal) => {
+            modal.querySelector('[data-devlog-close]').addEventListener('click', () => {
+                modal.close();
             });
 
-            function dismissFontHint() {
-                fontHint.classList.add('hidden');
-                try {
-                    sessionStorage.setItem('davids-farm-font-hint', 'dismissed');
-                } catch (error) {
-                    // The hint can still be dismissed when browser storage is unavailable.
-                }
-            }
-
-            function applyFontPreference(usePirkkala) {
-                document.body.classList.toggle('font-pirkkala', usePirkkala);
-                fontToggle.classList.toggle('active', usePirkkala);
-                fontToggle.setAttribute('aria-pressed', String(usePirkkala));
-                fontToggle.setAttribute(
-                    'aria-label',
-                    usePirkkala
-                        ? t('font.ariaSwitchToPixel', 'Alternar para a fonte I Pixel U')
-                        : t('font.ariaSwitchToPirkkala', 'Voltar para a fonte Pirkkala')
-                );
-            }
-
-            let usePirkkala = true;
-            try {
-                usePirkkala = localStorage.getItem('davids-farm-font') !== 'i-pixel-u';
-            } catch (error) {
-                usePirkkala = true;
-            }
-            applyFontPreference(usePirkkala);
-
-            try {
-                if (sessionStorage.getItem('davids-farm-font-hint') === 'dismissed') {
-                    fontHint.classList.add('hidden');
-                }
-            } catch (error) {
-                // Show the hint normally when browser storage is unavailable.
-            }
-
-            fontHint.addEventListener('click', dismissFontHint);
-
-            fontToggle.addEventListener('click', () => {
-                usePirkkala = !document.body.classList.contains('font-pirkkala');
-                applyFontPreference(usePirkkala);
-                dismissFontHint();
-                try {
-                    localStorage.setItem('davids-farm-font', usePirkkala ? 'pirkkala' : 'i-pixel-u');
-                } catch (error) {
-                    // The toggle still works when browser storage is unavailable.
+            modal.addEventListener('click', (event) => {
+                if (event.target === modal) {
+                    modal.close();
                 }
             });
-
-            document.addEventListener('keydown', (event) => {
-                if (event.key !== 'F8') return;
-
-                event.preventDefault();
-                try {
-                    localStorage.clear();
-                    sessionStorage.clear();
-                } catch (error) {
-                    // Reset the visible state even when browser storage is unavailable.
-                }
-
-                usePirkkala = true;
-                applyFontPreference(true);
-                fontHint.classList.remove('hidden');
-
-                if (langSelect) langSelect.value = I18N_DEFAULT;
-                loadLanguage(I18N_DEFAULT);
-            });
-
-            function formatAudioTime(seconds) {
-                if (!Number.isFinite(seconds)) return '0:00';
-
-                const minutes = Math.floor(seconds / 60);
-                const remainingSeconds = Math.floor(seconds % 60).toString().padStart(2, '0');
-                return `${minutes}:${remainingSeconds}`;
-            }
-
-            if (previewAudio && previewPlay && previewProgress && previewCurrent && previewDuration && previewVolume) {
-                previewAudio.volume = Number(previewVolume.value) / 100;
-
-                function updatePreviewProgress() {
-                    previewProgress.value = previewAudio.duration
-                        ? String((previewAudio.currentTime / previewAudio.duration) * 100)
-                        : '0';
-                    previewCurrent.textContent = formatAudioTime(previewAudio.currentTime);
-                    previewDuration.textContent = formatAudioTime(previewAudio.duration);
-                }
-
-                previewPlay.addEventListener('click', async () => {
-                    if (previewAudio.paused) {
-                        try {
-                            await previewAudio.play();
-                        } catch (error) {
-                            previewPlay.textContent = 'PLAY';
-                            previewPlay.setAttribute('aria-label', t('preview.playAria', 'Tocar preview'));
-                        }
-                    } else {
-                        previewAudio.pause();
-                    }
-                });
-
-                previewAudio.addEventListener('play', () => {
-                    previewPlay.textContent = 'PAUSE';
-                    previewPlay.setAttribute('aria-label', t('preview.pauseAria', 'Pausar preview'));
-                });
-
-                previewAudio.addEventListener('pause', () => {
-                    previewPlay.textContent = 'PLAY';
-                    previewPlay.setAttribute('aria-label', t('preview.playAria', 'Tocar preview'));
-                });
-
-                previewAudio.addEventListener('loadedmetadata', updatePreviewProgress);
-                previewAudio.addEventListener('timeupdate', updatePreviewProgress);
-                previewAudio.addEventListener('ended', () => {
-                    previewAudio.currentTime = 0;
-                    updatePreviewProgress();
-                });
-
-                previewProgress.addEventListener('input', () => {
-                    if (!previewAudio.duration) return;
-
-                    previewAudio.currentTime = (Number(previewProgress.value) / 100) * previewAudio.duration;
-                });
-
-                previewVolume.addEventListener('input', () => {
-                    previewAudio.volume = Number(previewVolume.value) / 100;
-                });
-            }
-
-            const snakeCanvas = document.getElementById('snake-canvas');
-            const snakePath = document.getElementById('snake-path');
-            const davidElement = document.getElementById('david-element');
-            const davidGif = document.getElementById('david-gif');
-            const davidText = document.getElementById('david-text');
-
-            let currentState = 1;
-            let isAnimating = false;
-            let lastCalculatedState = { L1: 0, L2: 0, L3: 0, L_total: 0, gap: 0, startY: 0, endY: 0, startX: 0, rightX: 0, endX: 0 };
-
-            function calculatePath() {
-                const containerRect = container.getBoundingClientRect();
-                const p1Rect = p1.getBoundingClientRect();
-                const p2Rect = p2.getBoundingClientRect();
-
-                // We use offsetTop/Left relative to the container
-                // p1.offsetTop gives the Y position of placeholder 1 relative to container
-                const startY = p1.offsetTop;
-                const endY = p2.offsetTop;
-
-                const padding = 20;
-                const startX = padding;
-                const endX = padding;
-
-                // Calculate rightX: 60px away from the content edge, but keep it inside the screen
-                const historySection = document.querySelector('.history-section');
-                const wrapperRightEdge = historySection.offsetLeft + historySection.offsetWidth;
-                const rightX = wrapperRightEdge + 40; // Pass outside the content
-
-                // Create SVG Path (Delay setting it if animating)
-                const pathString = `M ${startX} ${startY} L ${rightX} ${startY} L ${rightX} ${endY} L ${endX} ${endY}`;
-                if (!isAnimating) {
-                    snakePath.setAttribute('d', pathString);
-                }
-
-                // Calculate lengths
-                const L1 = rightX - startX;
-                const L2 = endY - startY;
-                const L3 = rightX - endX; // == L1
-                const L_total = L1 + L2 + L3;
-
-                // Calculate Gap (David width + gap + Text width)
-                const gap = davidElement.offsetWidth + 15; // 15px extra breathing room
-                const snakeLength = wrapperRightEdge - startX - gap;
-
-                snakePath.style.strokeDasharray = `${snakeLength} ${L_total}`;
-
-                // State offsets
-                const offset1 = -gap;
-                const offset2 = -(L1 + L2 + (rightX - wrapperRightEdge));
-
-                lastCalculatedState = { L1, L2, L3, L_total, gap, startY, endY, startX, rightX, endX, offset1, offset2, snakeLength, pathString };
-
-                if (!isAnimating) {
-                    snakePath.setAttribute('d', pathString);
-                    snakePath.style.strokeDasharray = `${snakeLength} ${L_total}`;
-                    applyStateWithoutAnimation();
-                }
-            }
-
-            function applyStateWithoutAnimation() {
-                if (isAnimating) return;
-                const { offset1, offset2, startY, endY, startX, endX } = lastCalculatedState;
-
-                if (currentState === 1) {
-                    snakePath.style.strokeDashoffset = `${offset1}px`;
-                    davidElement.style.transform = `translate(${startX}px, ${startY - davidElement.offsetHeight/2}px)`;
-                    davidText.textContent = t('divider.history', 'Sobre a história...');
-                    davidGif.style.transform = "scaleX(1)";
-                } else {
-                    snakePath.style.strokeDashoffset = `${offset2}px`;
-                    davidElement.style.transform = `translate(${endX}px, ${endY - davidElement.offsetHeight/2}px)`;
-                    davidText.textContent = t('divider.thanks', 'Obrigado por acompanhar! :)');
-                    davidGif.style.transform = "scaleX(1)";
-                }
-            }
-
-            function triggerTransition() {
-                if (isAnimating) return;
-                isAnimating = true;
-
-                const { startY, endY, startX, rightX, endX, L1, L2, L3, L_total } = lastCalculatedState;
-
-                // Measure target gap dynamically
-                const currentText = davidText.textContent;
-                const targetText = currentState === 2
-                    ? t('divider.thanks', 'Obrigado por acompanhar! :)')
-                    : t('divider.history', 'Sobre a história...');
-
-                davidText.textContent = targetText;
-                const targetGap = davidElement.offsetWidth + 15;
-                davidText.textContent = currentText; // restore
-                const currentGap = davidElement.offsetWidth + 15;
-
-                const historySection = document.querySelector('.history-section');
-                const wrapperRightEdge = historySection.offsetLeft + historySection.offsetWidth;
-
-                const oldSnakeLength = wrapperRightEdge - startX - currentGap;
-                const newSnakeLength = wrapperRightEdge - startX - targetGap;
-                const offset2 = -(L1 + L2 + (rightX - wrapperRightEdge));
-
-                // Animation settings
-                const duration = 1200;
-                const easing = 'cubic-bezier(0.45, 0, 0.55, 1)'; // Smooth ease in out
-
-                const davidOffset = davidGif.offsetWidth / 2;
-
-                // Path Keyframes for David
-                const davidKeyframes = currentState === 2 ? [
-                    { transform: `translate(${startX}px, ${startY - davidElement.offsetHeight/2}px)`, offset: 0 },
-                    { transform: `translate(${rightX - davidOffset}px, ${startY - davidElement.offsetHeight/2}px)`, offset: 0.4 },
-                    { transform: `translate(${rightX - davidOffset}px, ${endY - davidElement.offsetHeight/2}px)`, offset: 0.6 },
-                    { transform: `translate(${endX}px, ${endY - davidElement.offsetHeight/2}px)`, offset: 1 }
-                ] : [
-                    { transform: `translate(${endX}px, ${endY - davidElement.offsetHeight/2}px)`, offset: 0 },
-                    { transform: `translate(${rightX - davidOffset}px, ${endY - davidElement.offsetHeight/2}px)`, offset: 0.4 },
-                    { transform: `translate(${rightX - davidOffset}px, ${startY - davidElement.offsetHeight/2}px)`, offset: 0.6 },
-                    { transform: `translate(${startX}px, ${startY - davidElement.offsetHeight/2}px)`, offset: 1 }
-                ];
-
-                // Text change halfway (while invisible)
-                setTimeout(() => {
-                    davidText.textContent = currentState === 2
-                        ? t('divider.thanks', 'Obrigado por acompanhar! :)')
-                        : t('divider.history', 'Sobre a história...');
-                    // calculatePath will be triggered by ResizeObserver when text changes
-                }, duration / 2);
-
-                // Text Fade In/Out Animation
-                const textFadeKeyframes = [
-                    { opacity: 1, offset: 0 },
-                    { opacity: 0, offset: 0.2 },
-                    { opacity: 0, offset: 0.8 },
-                    { opacity: 1, offset: 1 }
-                ];
-                davidText.animate(textFadeKeyframes, { duration, easing: 'ease-in-out', fill: 'forwards' });
-
-                // David Jump & Flip Animation
-                // If moving to 2: moves Right (face right), Down (face right), Left (face left)
-                // If moving to 1: moves Right (face right), Up (face right), Left (face left)
-                const gifFlipKeyframes = currentState === 2 ? [
-                    { transform: 'scaleX(1)', offset: 0 },
-                    { transform: 'scaleX(1)', offset: 0.59 },
-                    { transform: 'scaleX(-1)', offset: 0.6 },
-                    { transform: 'scaleX(-1)', offset: 0.99 },
-                    { transform: 'scaleX(1)', offset: 1 }
-                ] : [
-                    { transform: 'scaleX(1)', offset: 0 },
-                    { transform: 'scaleX(1)', offset: 0.39 },
-                    { transform: 'scaleX(-1)', offset: 0.4 },
-                    { transform: 'scaleX(-1)', offset: 0.99 },
-                    { transform: 'scaleX(1)', offset: 1 }
-                ];
-
-                davidGif.animate(gifFlipKeyframes, { duration, easing: 'linear', fill: 'forwards' });
-
-                // Add Jump class to make him bounce while slithering
-                davidGif.classList.add('jump-continuous');
-
-                // David Element Translation
-                const davidAnim = davidElement.animate(davidKeyframes, { duration, easing, fill: 'forwards' });
-
-                // Snake Line Dash Offset AND Array (for smooth length transition)
-                const lineKeyframes = currentState === 2 ? [
-                    { strokeDashoffset: `${-currentGap}px`, strokeDasharray: `${oldSnakeLength} ${L_total}` },
-                    { strokeDashoffset: `${offset2}px`, strokeDasharray: `${newSnakeLength} ${L_total}` }
-                ] : [
-                    { strokeDashoffset: `${offset2}px`, strokeDasharray: `${oldSnakeLength} ${L_total}` },
-                    { strokeDashoffset: `${-targetGap}px`, strokeDasharray: `${newSnakeLength} ${L_total}` }
-                ];
-
-                const snakeAnim = snakePath.animate(lineKeyframes, { duration, easing, fill: 'forwards' });
-                snakeAnim.onfinish = () => {
-                    davidGif.classList.remove('jump-continuous');
-                    isAnimating = false;
-
-                    // Apply the final calculated state to the CSS
-                    snakePath.setAttribute('d', lastCalculatedState.pathString);
-                    snakePath.style.strokeDasharray = `${lastCalculatedState.snakeLength} ${lastCalculatedState.L_total}`;
-                    applyStateWithoutAnimation();
-
-                    // Cancel animations to release the 'forwards' lock and let CSS take over smoothly
-                    snakeAnim.cancel();
-                    davidAnim.cancel();
-                };
-            }
-
-            function checkScroll() {
-                const rect1 = p1.getBoundingClientRect();
-                const viewportCenter = window.innerHeight * 0.45;
-
-                if (rect1.top < viewportCenter) {
-                    if (currentState !== 2 && !isAnimating) {
-                        currentState = 2;
-                        triggerTransition();
-                    }
-                } else {
-                    if (currentState !== 1 && !isAnimating) {
-                        currentState = 1;
-                        triggerTransition();
-                    }
-                }
-            }
-
-            window.addEventListener('scroll', checkScroll);
-
-            const resizeObserver = new ResizeObserver(() => {
-                calculatePath();
-            });
-            resizeObserver.observe(container);
-            resizeObserver.observe(davidElement);
-
-            // Accordion FAQ Click Handler
-            document.querySelectorAll('.faq-item h3').forEach(header => {
-                header.addEventListener('click', () => {
-                    const item = header.parentElement;
-                    item.classList.toggle('active');
-                });
-            });
-
-            // Language setup: stored preference, then browser language, else default.
-            let initialLang = I18N_DEFAULT;
-            try {
-                const storedLang = localStorage.getItem('davids-farm-lang');
-                if (storedLang && I18N_SUPPORTED.includes(storedLang)) {
-                    initialLang = storedLang;
-                } else {
-                    const browserLang = (navigator.language || '').slice(0, 2).toLowerCase();
-                    if (I18N_SUPPORTED.includes(browserLang)) initialLang = browserLang;
-                }
-            } catch (error) {
-                initialLang = I18N_DEFAULT;
-            }
-
-            if (langSelect) {
-                langSelect.value = initialLang;
-                langSelect.addEventListener('change', () => {
-                    loadLanguage(langSelect.value);
-                });
-            }
-
-            loadLanguage(initialLang);
-
-            // Initial setup
-            window.addEventListener('load', () => {
-                calculatePath();
-                checkScroll();
-            });
-
-            // Fallback check
-            setTimeout(() => {
-                calculatePath();
-                checkScroll();
-            }, 100);
         });
     </script>
 </body>
